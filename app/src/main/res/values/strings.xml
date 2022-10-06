@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Parliament Finland</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="heteka_id">Heteka Id</string>
+    <string name="first_name">"First Name "</string>
+    <string name="last_name">Last Name</string>
+    <string name="seat_no">Seat Number</string>
+    <string name="minister">Minister</string>
+    <string name="party">Party</string>
+    <string name="twitter">Twitter</string>
+    <string name="born_year">Born Year</string>
+    <string name="constituency">Contituency</string>
+</resources>
