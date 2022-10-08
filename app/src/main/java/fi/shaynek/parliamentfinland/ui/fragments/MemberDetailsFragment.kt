@@ -1,27 +1,30 @@
-package fi.shaynek.parliamentfinland.ui.fragments
+package dev.vstec.parliament2.ui.fragments
 
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import fi.shaynek.parliamentfinland.R
-import fi.shaynek.parliamentfinland.app.MainApplication
-import fi.shaynek.parliamentfinland.data.network.ParliamentApiClient
-import fi.shaynek.parliamentfinland.data.viewmodels.MemberDetailsViewModel
-import fi.shaynek.parliamentfinland.data.viewmodels.MemberDetailsViewModelFactory
-import fi.shaynek.parliamentfinland.databinding.FragmentMemberDetailsBinding
+import dev.vstec.parliament2.R
+import dev.vstec.parliament2.app.MainApplication
+import dev.vstec.parliament2.data.entity.MembersBasicData
+import dev.vstec.parliament2.data.entity.MembersExtraData
+import dev.vstec.parliament2.data.viewmodels.MemberDetailsViewModel
+import dev.vstec.parliament2.data.viewmodels.MemberDetailsViewModelFactory
+import dev.vstec.parliament2.databinding.FragmentMemberDetailsBinding
+import dev.vstec.parliament2.services.ParliamentApiClient
+import kotlin.properties.Delegates
 
 
 class MemberDetailsFragment : Fragment() {
-    lateinit var viewModel: MemberDetailsViewModel
-    lateinit var binding: FragmentMemberDetailsBinding
-    lateinit var netDataHandler: Handler
-    lateinit var imgLoaderHandler: Handler
-
+    private lateinit var viewModel: MemberDetailsViewModel
+    private lateinit var binding: FragmentMemberDetailsBinding
+    private lateinit var netDataHandler: Handler
+    private lateinit var imgLoaderHandler: Handler
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,8 +59,7 @@ class MemberDetailsFragment : Fragment() {
             */
         viewModel = ViewModelProvider(
             requireActivity(), MemberDetailsViewModelFactory(
-                (requireActivity().application as MainApplication).membersRepository,
-                ParliamentApiClient.retrofitService
+                (requireActivity().application as MainApplication).membersRepository
             )
         )[MemberDetailsViewModel::class.java]
 
@@ -102,12 +104,38 @@ class MemberDetailsFragment : Fragment() {
     }
 
     private fun initUiComponents() {
-
+        Log.d("Ous", viewModel.basicData.value.toString())
         netDataHandler.post {
-            viewModel.fetchBasicData()
-            viewModel.fetchExtraData()
+            viewModel.syncFetch(requireActivity())
 
         }
+        viewModel.basicData.observe(requireActivity(), Observer{
+            var basic = it[0]
+
+//            populateFields()
+        })
+        /*
+        viewModel.basicData.observe(requireActivity()) {
+            if (it.isNotEmpty()) {
+//                viewModel.loadImage(it[0].photoUrl)
+                binding.hetekaId.setText(it[0].hetekaId.toString())
+                binding.firstName.setText(it[0].firstName.toString())
+                binding.lastName.setText(it[0].lastName.toString())
+                binding.seatNumber.setText(it[0].seatNo.toString())
+                binding.party.setText(it[0].party)
+                binding.minister.isChecked = it[0].minister
+            }
+        }
+
+        viewModel.extraData.observe(requireActivity()) {
+            if (it.isNotEmpty()) {
+                binding.twitter.setText(it[0].twitterHandle)
+                binding.borneYear.setText(it[0].bornYear.toString())
+                binding.constituency.setText(it[0].constituency)
+            }
+        }*/
+        /*
+        viewModel.observeStatus(requireActivity())
 
         viewModel.basicDataNet.observe(requireActivity(), Observer {
             viewModel.loadImage(it[0].photoUrl)
@@ -120,7 +148,7 @@ class MemberDetailsFragment : Fragment() {
         })
         viewModel.extraDataNet.observe(requireActivity(), Observer {
             binding.twitter.setText(it[0].twitterHandle)
-            binding.borneYear.setText(it[0].bornYear)
+            binding.borneYear.setText(it[0].bornYear.toString())
             binding.constituency.setText(it[0].constituency)
         })
         viewModel.img.observe(requireActivity(), Observer{
@@ -130,8 +158,21 @@ class MemberDetailsFragment : Fragment() {
                 binding.photo.setImageResource(R.drawable.ic_account)
             }
         })
-    }
 
+         */
+    }
+    private fun populateFields(basicData:MembersBasicData, extraData:MembersExtraData){
+        binding.hetekaId.setText(basicData.hetekaId.toString())
+        binding.firstName.setText(basicData.firstName.toString())
+        binding.lastName.setText(basicData.lastName.toString())
+        binding.seatNumber.setText(basicData.seatNo.toString())
+        binding.party.setText(basicData.party)
+        binding.minister.isChecked = basicData.minister
+
+        binding.twitter.setText(extraData.twitterHandle)
+        binding.borneYear.setText(extraData.bornYear.toString())
+        binding.constituency.setText(extraData.constituency)
+    }
 
 
 }

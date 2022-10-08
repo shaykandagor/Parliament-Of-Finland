@@ -1,12 +1,25 @@
 package fi.shaynek.parliamentfinland.data.repositories
 
-import fi.shaynek.parliamentfinland.data.database.dao.CommentsDao
-import fi.shaynek.parliamentfinland.data.database.entity.Comments
+import android.database.sqlite.SQLiteConstraintException
+import android.util.Log
+import dev.vstec.parliament2.data.dao.CommentsDao
+import dev.vstec.parliament2.data.entity.Comments
 import kotlinx.coroutines.flow.Flow
 
 class CommentsRepository(private val commentsDao: CommentsDao) {
+    /*
+    private val _comments: LiveData<List<Comments>> = commentsDao.getComments().asLiveData()
+    val comments: LiveData<List<Comments>>
+        get() = _comments
+     */
+
     suspend fun addComment(comment: Comments){
-        commentsDao.addComment(comment)
+        try {
+            commentsDao.addComment(comment)
+        }catch (e: SQLiteConstraintException){
+            Log.d("Ous", e.toString())
+        }
+
     }
     suspend fun updateComment(comment: Comments){
         commentsDao.updateComment(comment)

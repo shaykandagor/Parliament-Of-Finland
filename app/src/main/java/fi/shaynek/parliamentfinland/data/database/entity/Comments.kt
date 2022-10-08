@@ -7,6 +7,14 @@ import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import java.util.Date
 
+/**
+ * This class defines comments from the users that can be fetched from database
+ * @author Shayne Kandagor
+ * @version 1.0
+ * @since 26.09.2022
+ */
+
+
 @Entity(
     tableName = "comments",
 
@@ -30,5 +38,5 @@ data class Comments(
     @ColumnInfo(name = "comment")
     val comment: String="",
     @ColumnInfo(name = "created")
-    val created: Long = Date().time
+    val timeStamp: Long = Date().time
 )

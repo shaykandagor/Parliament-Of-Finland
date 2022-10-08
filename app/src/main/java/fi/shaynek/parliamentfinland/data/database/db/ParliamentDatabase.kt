@@ -11,9 +11,17 @@ import fi.shaynek.parliamentfinland.data.database.entity.Comments
 import fi.shaynek.parliamentfinland.data.database.entity.MembersBasicData
 import fi.shaynek.parliamentfinland.data.database.entity.MembersExtraData
 
+/**
+ * Database entity for Member basic and extra data and Comment.
+ * This class informs android studio that a pre-populated database is added
+ * @author Shayne Kandagor
+ * @version 1.0
+ * @since 26.09.2022
+ */
+
 @Database(entities = [MembersBasicData::class, MembersExtraData::class, Comments::class], version = 1, exportSchema = false)
 
-public abstract class ParliamentDatabase:RoomDatabase() {
+abstract class ParliamentDatabase:RoomDatabase() {
     abstract val commentsDao: CommentsDao
     abstract val membersBasicDataDao: MemberBasicDataDao
     abstract val membersExtraDataDao: MembersExtraDataDao

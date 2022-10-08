@@ -1,7 +1,7 @@
-package fi.shaynek.parliamentfinland.data.viewmodels
+package dev.vstec.parliament2.data.viewmodels
 
 import androidx.lifecycle.*
-import fi.shaynek.parliamentfinland.data.database.entity.Comments
+import dev.vstec.parliament2.data.entity.Comments
 import fi.shaynek.parliamentfinland.data.repositories.CommentsRepository
 import kotlinx.coroutines.launch
 
@@ -27,6 +27,10 @@ class CommentsViewModel(private val commentsRepository: CommentsRepository) : Vi
     fun addComment(hetekaId: Int, comment: String) {
         val newComment: Comments = getComment(hetekaId, comment)
         addComment(newComment)
+    }
+
+    fun isInputValid(comment: String):Boolean{
+        return comment.isNotBlank() && comment.isNotEmpty()
     }
 
     fun updateComment(comment: Comments) {

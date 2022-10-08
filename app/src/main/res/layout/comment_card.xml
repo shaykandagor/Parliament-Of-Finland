@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?selectableItemBackground"
+    android:id="@+id/comment_card"
+    android:layout_margin="20dp"
+    app:cardCornerRadius="20dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:hint="@string/author"
+            android:id="@+id/comment_author"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:hint="@string/comment"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:id="@+id/comment_content"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

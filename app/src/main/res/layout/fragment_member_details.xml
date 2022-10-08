@@ -1,78 +1,267 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:paddingHorizontal="30dp"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.MemberDetailsFragment">
 
-    <ImageView
-        android:layout_width="200dp"
-        android:id="@+id/photo"
-        android:contentDescription="@string/profile_picture"
-        android:layout_height="200dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
-
-    <LinearLayout
-        android:layout_alignBottom="@+id/photo"
-        android:layout_alignParentBottom="true"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/heteka_id"
-            android:id="@+id/heteka_id"/>
+        android:layout_height="match_parent">
 
-        <EditText
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/first_name"
-            android:id="@+id/first_name"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/last_name"
-            android:id="@+id/last_name"/>
+            <!-- TextInput Layout for hetekaId of the member-->
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/seat_no"
-            android:id="@+id/seat_number"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/minister"
-            android:id="@+id/minister"/>
+                <ImageView
+                    android:id="@+id/photo"
+                    android:layout_width="145dp"
+                    android:layout_height="163dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_account" />
 
-        <EditText
-            android:id="@+id/party"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/party"/>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/thumbsDownFloatingButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="312dp"
+                    android:layout_marginTop="95dp"
+                    android:src="@drawable/ic_thumbs_down" />
 
-        <EditText
-            android:id="@+id/twitter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/twitter"/>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/thumbsUpFloatingButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="97dp"
+                    android:src="@drawable/ic_thumbs_up" />
+            </RelativeLayout>
 
-        <EditText
-            android:id="@+id/borne_year"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/born_year"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/hetekaId_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="hetekaId:">
 
-        <EditText
-            android:id="@+id/constituency"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/constituency"/>
-    </LinearLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/hetekaIdText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--TextInput Layout for name of the member-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lastName_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="First Name:">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lastNameText"
+                    style="input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--TextInput Layout for name of the member-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/firstName_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="First Name:">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/firstNameText"
+                    style="input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--TextInput Layout for seat number of the member-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/seat_number_wrapper"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Seat Number:">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/seatNumberText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--TextInput Layout for political party of the member -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/party_wrapper"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Political Party:">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/partyText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- TextInput Layout for minister or not a minister of the member-->
+
+
+                <CheckBox
+                    android:id="@+id/minister"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/minister" />
+
+
+            <!-- TextInput Layout for year of birth  of the member-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/yearBorn_wrapper"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Year:">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/yearBornText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--TextInput Layout for constituency  of the member-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/constituency_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Constituency:">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/constituencyText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- TextInput Layout for twitter account  of the member-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/twitter_wrapper"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Twitter Account:">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/twitterText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</ScrollView>
+
+
+
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:paddingHorizontal="30dp"-->
+<!--    android:layout_height="match_parent">-->
+
+<!--    <ImageView-->
+<!--        android:layout_width="200dp"-->
+<!--        android:id="@+id/photo"-->
+<!--        android:contentDescription="@string/profile_picture"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_centerHorizontal="true"/>-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_alignBottom="@+id/photo"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical">-->
+<!--        <EditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/heteka_id"-->
+<!--            android:id="@+id/heteka_id"/>-->
+
+<!--        <EditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/first_name"-->
+<!--            android:id="@+id/first_name"/>-->
+
+<!--        <EditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/last_name"-->
+<!--            android:id="@+id/last_name"/>-->
+
+<!--        <EditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/seat_no"-->
+<!--            android:id="@+id/seat_number"/>-->
+
+<!--        <CheckBox-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/minister"-->
+<!--            android:id="@+id/minister"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/party"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/party"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/twitter"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/twitter"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/borne_year"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/born_year"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/constituency"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/constituency"/>-->
+<!--    </LinearLayout>-->
 
 
 
@@ -117,4 +306,4 @@
 
 
 
-</RelativeLayout>
+<!--</RelativeLayout>-->

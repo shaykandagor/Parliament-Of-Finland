@@ -1,39 +1,46 @@
 package fi.shaynek.parliamentfinland.data.viewmodels
 
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.util.Log
 import androidx.lifecycle.*
-import fi.shaynek.parliamentfinland.data.database.entity.MembersBasicData
-import fi.shaynek.parliamentfinland.data.database.entity.MembersExtraData
+import dev.vstec.parliament2.data.entity.MembersBasicData
+import dev.vstec.parliament2.data.entity.MembersExtraData
 import fi.shaynek.parliamentfinland.data.repositories.MembersRepository
-import fi.shaynek.parliamentfinland.data.network.ParliamentService
-import fi.shaynek.parliamentfinland.utils.Shared
+import dev.vstec.parliament2.services.ParliamentApiStatus
+import dev.vstec.parliament2.utils.Shared
 import kotlinx.coroutines.launch
-import java.io.InputStream
-import java.net.HttpURLConnection
-import java.net.URL
 
 class MemberDetailsViewModel(
     private val membersRepository: MembersRepository,
-    private val apiClient: ParliamentService
 ) :
+
     ViewModel() {
+
+    fun observeStatus(lifeCycleOwner: LifecycleOwner) {
+        membersRepository.fectStatus.observe(lifeCycleOwner, Observer {
+            Log.d("Ous:fectStatus", it.toString())
+        })
+        membersRepository.extraDataStatus.observe(lifeCycleOwner, Observer {
+            Log.d("Ous:ex", it.toString())
+        })
+        membersRepository.basicDataStatus.observe(lifeCycleOwner, Observer {
+            Log.d("Ous:bsStatus", it.toString())
+        })
+    }
+
     val basicDataNet = MutableLiveData<List<MembersBasicData>>()
     val extraDataNet = MutableLiveData<List<MembersExtraData>>()
-    val greet = MutableLiveData<Int>()
+    private var isFiltered = false
+
     val img = MutableLiveData<Bitmap?>()
 
-    init {
-        greet.value = 0
-    }
+    private val _basicData: LiveData<List<MembersBasicData>> = membersRepository.basicData
+    private val _extraData: LiveData<List<MembersExtraData>> = membersRepository.extraData
 
-    fun inC() {
-        greet.value = (greet.value)?.plus(1)
-    }
-
-    val basicData: LiveData<List<MembersBasicData>> = membersRepository.getMembersBasicData()
-    val extraData: LiveData<List<MembersExtraData>> = membersRepository.getMembersExtraData()
+    val basicData: LiveData<List<MembersBasicData>>
+        get() = _basicData
+    val extraData: LiveData<List<MembersExtraData>>
+        get() = _extraData
 
     private fun addBasicData(basicData: MembersBasicData) {
         viewModelScope.launch {
@@ -47,12 +54,15 @@ class MemberDetailsViewModel(
         }
     }
 
-    fun fetchBasicData() {
+    private fun fetchBasicData() {
         viewModelScope.launch {
             try {
-                val listResult = apiClient.getBasicData()
+                val listResult = membersRepository.fetchBasicData()
                 //TODO COME HERE
-                Log.d("Ous", listResult.toString())
+                Log.d("Ous:bsCoun", listResult.size.toString())
+                Log.d("Ous:bs917", listResult.filter {
+                    return@filter it.hetekaId == 917
+                }.toString())
                 basicDataNet.value = listResult
             } catch (e: Exception) {
                 Log.d("Ous:bs", e.toString())
@@ -63,16 +73,46 @@ class MemberDetailsViewModel(
         }
     }
 
-    fun fetchExtraData() {
+    private fun fetchExtraData() {
         viewModelScope.launch {
             try {
-                val listResult = apiClient.getExtraData()
+                val listResult = membersRepository.fetchExtraData()
                 //TODO COME HERE
-                Log.d("Ous", listResult.toString())
+                Log.d("Ous:exCoun", listResult.size.toString())
+                Log.d("Ous:ex917", listResult.filter {
+                    return@filter it.hetekaId == 917
+                }.toString())
                 extraDataNet.value = listResult
             } catch (e: Exception) {
                 Log.d("Ous:ex", e.toString())
             }
+        }
+    }
+
+    fun syncFetch(lifeCycleOwner: LifecycleOwner) {
+        viewModelScope.launch {
+            fetchBasicData()
+
+            membersRepository.basicDataStatus.observe(lifeCycleOwner, Observer {
+                if (it == ParliamentApiStatus.DONE) {
+                    fetchExtraData()
+                } else if (it == ParliamentApiStatus.LOADING) {
+                    membersRepository.fectStatus.value = ParliamentApiStatus.LOADING
+                    membersRepository.extraDataStatus.value = ParliamentApiStatus.LOADING
+                } else {
+                    membersRepository.fectStatus.value = ParliamentApiStatus.ERROR
+                    membersRepository.extraDataStatus.value = ParliamentApiStatus.ERROR
+                }
+            })
+            membersRepository.extraDataStatus.observe(lifeCycleOwner, Observer {
+                if (it == ParliamentApiStatus.DONE) {
+                    membersRepository.fectStatus.value = ParliamentApiStatus.DONE
+                } else if (it == ParliamentApiStatus.LOADING) {
+                    membersRepository.fectStatus.value = ParliamentApiStatus.LOADING
+                } else {
+                    membersRepository.fectStatus.value = ParliamentApiStatus.ERROR
+                }
+            })
         }
     }
 
@@ -146,48 +186,14 @@ class MemberDetailsViewModel(
         addBasicData(data)
     }
 
-    suspend fun getBitMap(url: String): Bitmap {
-        /**
-         * Throws 2 errors
-         */
-        /*
-        lateinit var photoUrl: URL
-        lateinit var btMap: Bitmap
-        */
-        val photoUrl = URL(url)
-        val conn: HttpURLConnection = photoUrl.openConnection() as HttpURLConnection
-        conn.doInput = true
-        conn.connect()
-        val inputStream: InputStream = conn.inputStream
-        val btMap = BitmapFactory.decodeStream(inputStream)
-        inputStream.close()
-        /*try {
-            photoUrl = URL(url)
 
-        } catch (e: MalformedURLException) {
-            Log.d("Ous", e.toString())
-        }
-        try {
-            val conn: HttpURLConnection = photoUrl.openConnection() as HttpURLConnection
-            conn.doInput = true
-            conn.connect()
-            val inputStream: InputStream = conn.inputStream
-            btMap = BitmapFactory.decodeStream(inputStream)
-            inputStream.close()
-
-        } catch (e: Exception) {
-            Log.d("Ous", e.toString())
-        }*/
-        return btMap
-    }
-
-    fun loadImage(url: String){
+    fun loadImage(url: String) {
         viewModelScope.launch {
             try {
                 val img_url = "${Shared.IMG_BASE_URL}$url"
+                img.value = membersRepository.getBitMap(img_url)
                 Log.d("Ous:Success load: ", img_url)
-                img.value = getBitMap(img_url)
-            }catch (e:Exception){
+            } catch (e: Exception) {
                 Log.d("Ous:bmap", e.toString())
             }
 
@@ -197,16 +203,14 @@ class MemberDetailsViewModel(
 }
 
 class MemberDetailsViewModelFactory(
-    private val membersRepository: MembersRepository,
-    private val apiClient: ParliamentService
+    private val membersRepository: MembersRepository
 ) :
     ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MemberDetailsViewModel::class.java)) {
             return MemberDetailsViewModel(
-                membersRepository,
-                apiClient
+                membersRepository
             ) as T
         }
         throw java.lang.IllegalArgumentException("Unknown ViewModel Class")

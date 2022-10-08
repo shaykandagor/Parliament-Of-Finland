@@ -9,5 +9,15 @@
     <string name="party">Party</string>
     <string name="twitter">Twitter</string>
     <string name="born_year">Born Year</string>
-    <string name="constituency">Contituency</string>
+    <string name="constituency">Constituency</string>
+
+    <string name="parliament_of_finland">PARLIAMENT OF FINLAND</string>
+    <string name="about_parliament">About Parliament</string>
+    <string name="political_parties">Political Parties</string>
+    <string name="parliament_members">Parliament Members</string>
+    <string name="user_comments">Comments</string>
+    <string name="parliament">ABOUT PARLIAMENT</string>
+    <string name="Comment">Add a comment...</string>
+    <string name="name_edit">Name</string>
+    <string name="hetekaId_edit">HetekaId</string>
 </resources>

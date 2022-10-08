@@ -6,6 +6,14 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 
+/**
+ * This class defines extra members details fetched from the database
+ * @author Shayne Kandagor
+ * @version 1.0
+ * @since 29.09.2022
+ */
+
+
 @Entity(
     tableName = "member_extra_data",
     foreignKeys = [

@@ -1,10 +1,12 @@
 package fi.shaynek.parliamentfinland.app
 
 import android.app.Application
-import fi.shaynek.parliamentfinland.data.repositories.CommentsRepository
-import fi.shaynek.parliamentfinland.data.repositories.MembersRepository
 import fi.shaynek.parliamentfinland.data.database.db.ParliamentDatabase
 import fi.shaynek.parliamentfinland.data.network.ParliamentApiClient
+
+/**
+ * This class is singleton - only one instance is guaranteed to ever exist.
+ */
 
 class MainApplication : Application() {
     private val database: ParliamentDatabase by lazy { ParliamentDatabase.getDatabase(this) }

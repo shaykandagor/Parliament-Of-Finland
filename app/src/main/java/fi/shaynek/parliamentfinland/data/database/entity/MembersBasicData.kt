@@ -6,6 +6,13 @@ import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 
 
+/**
+ * This class defines Member basic details whose information can be fetched from database
+ * @author Shayne Kandagor
+ * @version 1.0
+ * @since 26.09.2022
+ */
+
 @Entity(
     tableName = "members_basic_data"
 )

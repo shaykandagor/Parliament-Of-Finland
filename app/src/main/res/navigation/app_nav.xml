@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="dev.vstec.parliament2.ui.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_partiesFragment"
+            app:destination="@id/partiesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_partyDetailedFragment"
+            app:destination="@id/partyDetailedFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_aboutParliamentFragment"
+            app:destination="@id/aboutParliamentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/partiesFragment"
+        android:name="dev.vstec.parliament2.ui.fragments.PartiesFragment"
+        android:label="fragment_parties"
+        tools:layout="@layout/fragment_parties" >
+        <action
+            android:id="@+id/action_partiesFragment_to_partyDetailedFragment"
+            app:destination="@id/partyDetailedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/partyDetailedFragment"
+        android:name="dev.vstec.parliament2.ui.fragments.PartyDetailedFragment"
+        android:label="fragment_party_detailed"
+        tools:layout="@layout/fragment_party_detailed" >
+        <action
+            android:id="@+id/action_partyDetailedFragment_to_memberDetailsFragment"
+            app:destination="@id/memberDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/memberDetailsFragment"
+        android:name="dev.vstec.parliament2.ui.fragments.MemberDetailsFragment"
+        tools:layout="@layout/fragment_member_details"
+        android:label="MemberDetailsFragment" >
+        <action
+            android:id="@+id/action_memberDetailsFragment_to_commentsFragment"
+            app:destination="@id/commentsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentsFragment"
+        android:name="dev.vstec.parliament2.ui.fragments.CommentsFragment"
+        android:label="fragment_comments"
+        tools:layout="@layout/fragment_comments" />
+    <fragment
+        android:id="@+id/aboutParliamentFragment"
+        android:name="dev.vstec.parliament2.ui.fragments.AboutParliamentFragment"
+        android:label="fragment_about_parliament"
+        tools:layout="@layout/fragment_about_parliament" />
+</navigation>
