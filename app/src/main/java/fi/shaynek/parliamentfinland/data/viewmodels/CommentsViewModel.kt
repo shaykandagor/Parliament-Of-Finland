@@ -1,7 +1,7 @@
-package dev.vstec.parliament2.data.viewmodels
+package fi.shaynek.parliamentfinland.data.viewmodels
 
 import androidx.lifecycle.*
-import dev.vstec.parliament2.data.entity.Comments
+import fi.shaynek.parliamentfinland.data.database.entity.Comments
 import fi.shaynek.parliamentfinland.data.repositories.CommentsRepository
 import kotlinx.coroutines.launch
 

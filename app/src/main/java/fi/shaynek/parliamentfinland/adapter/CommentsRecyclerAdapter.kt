@@ -5,9 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import dev.vstec.parliament2.R
-import dev.vstec.parliament2.data.models.CommentItem
 import fi.shaynek.parliamentfinland.R
+import fi.shaynek.parliamentfinland.ui.fragments.CommentItem
 
 class CommentsRecyclerAdapter(private val dataSet: List<CommentItem>): RecyclerView.Adapter<CommentsRecyclerAdapter.CommentCardViewHolder>() {
     inner class CommentCardViewHolder(private val v:View):RecyclerView.ViewHolder(v){

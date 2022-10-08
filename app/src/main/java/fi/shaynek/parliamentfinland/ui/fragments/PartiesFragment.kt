@@ -1,4 +1,4 @@
-package dev.vstec.parliament2.ui.fragments
+package fi.shaynek.parliamentfinland.ui.fragments
 
 import android.os.Bundle
 import android.text.Editable
@@ -10,20 +10,19 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import dev.vstec.parliament2.MainActivity
-import dev.vstec.parliament2.R
-import dev.vstec.parliament2.adapters.PartiesRecyclerAdapter
-import dev.vstec.parliament2.app.MainApplication
-import dev.vstec.parliament2.data.models.Parliament
-import dev.vstec.parliament2.data.models.PartyItem
-import dev.vstec.parliament2.data.viewmodels.MemberDetailsViewModel
-import dev.vstec.parliament2.data.viewmodels.MemberDetailsViewModelFactory
-import dev.vstec.parliament2.databinding.FragmentPartiesBinding
+import fi.shaynek.parliamentfinland.MainActivity
+import fi.shaynek.parliamentfinland.R
+import fi.shaynek.parliamentfinland.adapter.PartiesRecyclerAdapter
+import fi.shaynek.parliamentfinland.app.MainApplication
+import fi.shaynek.parliamentfinland.data.models.Parliament
+import fi.shaynek.parliamentfinland.data.models.PartyItem
+import fi.shaynek.parliamentfinland.data.viewmodels.MemberDetailsViewModel
+import fi.shaynek.parliamentfinland.data.viewmodels.MemberDetailsViewModelFactory
+import fi.shaynek.parliamentfinland.databinding.FragmentPartiesBinding
 
 class PartiesFragment : Fragment() {
     lateinit var binding: FragmentPartiesBinding
@@ -66,7 +65,6 @@ class PartiesFragment : Fragment() {
                     icon = partyIcons.random(),
                     count = parlament.partyMembers(party).size,
                     onClick = {
-                        MainActivity.SHARED = party
                         Toast.makeText(requireActivity(), party, Toast.LENGTH_LONG).show()
                         val data = Bundle()
                         data.putString("party", party)

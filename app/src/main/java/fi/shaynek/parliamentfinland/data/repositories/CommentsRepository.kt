@@ -2,8 +2,9 @@ package fi.shaynek.parliamentfinland.data.repositories
 
 import android.database.sqlite.SQLiteConstraintException
 import android.util.Log
-import dev.vstec.parliament2.data.dao.CommentsDao
-import dev.vstec.parliament2.data.entity.Comments
+import fi.shaynek.parliamentfinland.data.database.dao.CommentsDao
+import fi.shaynek.parliamentfinland.data.database.entity.Comments
+
 import kotlinx.coroutines.flow.Flow
 
 class CommentsRepository(private val commentsDao: CommentsDao) {

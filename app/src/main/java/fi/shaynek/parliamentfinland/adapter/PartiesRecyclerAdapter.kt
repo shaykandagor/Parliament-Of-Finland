@@ -8,8 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import dev.vstec.parliament2.R
-import dev.vstec.parliament2.data.models.PartyItem
+import fi.shaynek.parliamentfinland.data.models.PartyItem
 import fi.shaynek.parliamentfinland.R
 
 class PartiesRecyclerAdapter(private val dataSet: List<PartyItem>) :

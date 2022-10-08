@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import dev.vstec.parliament2.R
-import dev.vstec.parliament2.data.models.PartyMemberItem
+import fi.shaynek.parliamentfinland.data.models.PartyMemberItem
 import fi.shaynek.parliamentfinland.R
 
 class PartyDetailedRecyclerAdapter(private var dataSet: List<PartyMemberItem>) :

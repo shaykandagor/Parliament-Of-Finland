@@ -1,4 +1,4 @@
-package dev.vstec.parliament2.ui.fragments
+package fi.shaynek.parliamentfinland.ui.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,15 +10,15 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import dev.vstec.parliament2.MainActivity
-import dev.vstec.parliament2.R
-import dev.vstec.parliament2.adapters.PartyDetailedRecyclerAdapter
-import dev.vstec.parliament2.app.MainApplication
-import dev.vstec.parliament2.data.models.Parliament
-import dev.vstec.parliament2.data.models.PartyMemberItem
-import dev.vstec.parliament2.data.viewmodels.MemberDetailsViewModel
-import dev.vstec.parliament2.data.viewmodels.MemberDetailsViewModelFactory
-import dev.vstec.parliament2.databinding.FragmentPartyDetailedBinding
+import fi.shaynek.parliamentfinland.MainActivity
+import fi.shaynek.parliamentfinland.R
+import fi.shaynek.parliamentfinland.adapter.PartyDetailedRecyclerAdapter
+import fi.shaynek.parliamentfinland.app.MainApplication
+import fi.shaynek.parliamentfinland.data.models.Parliament
+import fi.shaynek.parliamentfinland.data.models.PartyMemberItem
+import fi.shaynek.parliamentfinland.data.viewmodels.MemberDetailsViewModel
+import fi.shaynek.parliamentfinland.data.viewmodels.MemberDetailsViewModelFactory
+import fi.shaynek.parliamentfinland.databinding.FragmentPartyDetailedBinding
 
 class PartyDetailedFragment : Fragment() {
     private lateinit var viewModel: MemberDetailsViewModel
@@ -48,7 +48,7 @@ class PartyDetailedFragment : Fragment() {
     private fun addObservers() {
         viewModel.basicData.observe(requireActivity(), Observer { members ->
             val parliament = Parliament(members)
-            MainActivity.SHARED = null
+
             if (currParty != null) {
                 val partyMembers = parliament.partyMembers(currParty as String)
                 binding.partyDetailedIcon.setImageResource(R.drawable.ic_account)
@@ -63,7 +63,8 @@ class PartyDetailedFragment : Fragment() {
                             name = member.firstName + " " + member.lastName,
                             image = R.drawable.ic_account,
                             constituency = "it.constituency",
-                            seatNumber = member.seatNo
+                            seatNumber = member.seatNo,
+                            onClick = {}
                         )
                     })
             }

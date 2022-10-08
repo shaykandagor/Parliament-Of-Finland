@@ -1,4 +1,4 @@
-package dev.vstec.parliament2.data.models
+package fi.shaynek.parliamentfinland.data.models
 
 data class PartyMemberItem(
     var name: String,

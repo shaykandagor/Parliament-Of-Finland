@@ -1,4 +1,4 @@
-package dev.vstec.parliament2.ui.fragments
+package fi.shaynek.parliamentfinland.ui.fragments
 
 import android.os.Bundle
 import android.os.Handler
@@ -9,15 +9,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import dev.vstec.parliament2.R
-import dev.vstec.parliament2.app.MainApplication
-import dev.vstec.parliament2.data.entity.MembersBasicData
-import dev.vstec.parliament2.data.entity.MembersExtraData
-import dev.vstec.parliament2.data.viewmodels.MemberDetailsViewModel
-import dev.vstec.parliament2.data.viewmodels.MemberDetailsViewModelFactory
-import dev.vstec.parliament2.databinding.FragmentMemberDetailsBinding
-import dev.vstec.parliament2.services.ParliamentApiClient
-import kotlin.properties.Delegates
+import fi.shaynek.parliamentfinland.app.MainApplication
+import fi.shaynek.parliamentfinland.data.database.entity.MembersBasicData
+import fi.shaynek.parliamentfinland.data.database.entity.MembersExtraData
+import fi.shaynek.parliamentfinland.data.viewmodels.MemberDetailsViewModel
+import fi.shaynek.parliamentfinland.data.viewmodels.MemberDetailsViewModelFactory
+import fi.shaynek.parliamentfinland.databinding.FragmentMemberDetailsBinding
 
 
 class MemberDetailsFragment : Fragment() {
@@ -161,7 +158,7 @@ class MemberDetailsFragment : Fragment() {
 
          */
     }
-    private fun populateFields(basicData:MembersBasicData, extraData:MembersExtraData){
+    private fun populateFields(basicData: MembersBasicData, extraData: MembersExtraData){
         binding.hetekaId.setText(basicData.hetekaId.toString())
         binding.firstName.setText(basicData.firstName.toString())
         binding.lastName.setText(basicData.lastName.toString())

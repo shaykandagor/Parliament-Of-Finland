@@ -1,4 +1,4 @@
-package dev.vstec.parliament2.ui.fragments
+package fi.shaynek.parliamentfinland.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,14 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import dev.vstec.parliament2.R
-import dev.vstec.parliament2.databinding.FragmentHomeBinding
+import fi.shaynek.parliamentfinland.R
+import fi.shaynek.parliamentfinland.databinding.FragmentHomeBinding
 
 class HomeFragment: Fragment() {
     lateinit var navController: NavController
-    lateinit var binding:FragmentHomeBinding
+    lateinit var binding: FragmentHomeBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

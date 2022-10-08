@@ -1,17 +1,16 @@
-package dev.vstec.parliament2.ui.fragments
+package fi.shaynek.parliamentfinland.ui.fragments
 
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import dev.vstec.parliament2.R
-import dev.vstec.parliament2.adapters.CommentsRecyclerAdapter
-import dev.vstec.parliament2.app.MainApplication
-import dev.vstec.parliament2.data.models.CommentItem
-import dev.vstec.parliament2.data.viewmodels.CommentsViewModel
-import dev.vstec.parliament2.data.viewmodels.CommentsViewModelFactory
-import dev.vstec.parliament2.databinding.FragmentCommentsBinding
+import fi.shaynek.parliamentfinland.R
+import fi.shaynek.parliamentfinland.adapter.CommentsRecyclerAdapter
+import fi.shaynek.parliamentfinland.data.viewmodels.CommentsViewModel
+import fi.shaynek.parliamentfinland.data.viewmodels.CommentsViewModelFactory
+import fi.shaynek.parliamentfinland.app.MainApplication
+import fi.shaynek.parliamentfinland.databinding.FragmentCommentsBinding
 
 
 class CommentsFragment : Fragment() {

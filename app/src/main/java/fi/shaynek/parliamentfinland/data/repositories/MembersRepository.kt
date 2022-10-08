@@ -6,12 +6,12 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
-import dev.vstec.parliament2.data.dao.MemberBasicDataDao
-import dev.vstec.parliament2.data.dao.MembersExtraDataDao
-import dev.vstec.parliament2.data.entity.MembersBasicData
-import dev.vstec.parliament2.data.entity.MembersExtraData
-import dev.vstec.parliament2.services.ParliamentApiStatus
-import dev.vstec.parliament2.services.ParliamentService
+import fi.shaynek.parliamentfinland.data.database.dao.MemberBasicDataDao
+import fi.shaynek.parliamentfinland.data.database.dao.MembersExtraDataDao
+import fi.shaynek.parliamentfinland.data.database.entity.MembersBasicData
+import fi.shaynek.parliamentfinland.data.database.entity.MembersExtraData
+import fi.shaynek.parliamentfinland.data.network.ParliamentApiStatus
+import fi.shaynek.parliamentfinland.data.network.ParliamentService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.InputStream
@@ -46,10 +46,13 @@ class MembersRepository(
             try {
                 addBasicData(bsd)
                 //Log.d("Ous", "added: $bsd")
+                println("Ous: added: $bsd ")
             } catch (e: Exception) {
                 basicDataStatus.value = ParliamentApiStatus.ERROR
                 Log.d("Ous:ERROR$bsd", e.toString())
+                println("Ous:ERROR$bsd ${e.toString()}")
             }
+
         }
         basicDataStatus.value = ParliamentApiStatus.DONE
         return data
@@ -62,12 +65,14 @@ class MembersRepository(
             try {
                 addExtraData(ex)
                 //Log.d("Ous", "added: $ex")
+                println("Ous: added: $ex ")
             } catch (e: Exception) {
                 extraDataStatus.value = ParliamentApiStatus.ERROR
                 Log.d("Ous:ERROR$ex", e.toString())
                 Log.d("Ous:bse${ex.hetekaId}", listResult.filter {
                     return@filter it.hetekaId == ex.hetekaId
                 }.toString())
+                println("Ous:ERROR$ex ${e.toString()}")
             }
 
         }

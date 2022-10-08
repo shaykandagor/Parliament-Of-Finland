@@ -3,11 +3,11 @@ package fi.shaynek.parliamentfinland.data.viewmodels
 import android.graphics.Bitmap
 import android.util.Log
 import androidx.lifecycle.*
-import dev.vstec.parliament2.data.entity.MembersBasicData
-import dev.vstec.parliament2.data.entity.MembersExtraData
+import fi.shaynek.parliamentfinland.data.database.entity.MembersBasicData
+import fi.shaynek.parliamentfinland.data.database.entity.MembersExtraData
+import fi.shaynek.parliamentfinland.data.network.ParliamentApiStatus
 import fi.shaynek.parliamentfinland.data.repositories.MembersRepository
-import dev.vstec.parliament2.services.ParliamentApiStatus
-import dev.vstec.parliament2.utils.Shared
+import fi.shaynek.parliamentfinland.utils.Shared
 import kotlinx.coroutines.launch
 
 class MemberDetailsViewModel(

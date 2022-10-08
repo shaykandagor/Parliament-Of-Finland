@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="dev.vstec.parliament2.ui.fragments.HomeFragment"
+        android:name="fi.shaynek.parliamentfinland.ui.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/partiesFragment"
-        android:name="dev.vstec.parliament2.ui.fragments.PartiesFragment"
+        android:name="fi.shaynek.parliamentfinland.ui.fragments.PartiesFragment"
         android:label="fragment_parties"
         tools:layout="@layout/fragment_parties" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/partyDetailedFragment"
-        android:name="dev.vstec.parliament2.ui.fragments.PartyDetailedFragment"
+        android:name="fi.shaynek.parliamentfinland.ui.fragments.PartyDetailedFragment"
         android:label="fragment_party_detailed"
         tools:layout="@layout/fragment_party_detailed" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/memberDetailsFragment"
-        android:name="dev.vstec.parliament2.ui.fragments.MemberDetailsFragment"
+        android:name="fi.shaynek.parliamentfinland.ui.fragments.MemberDetailsFragment"
         tools:layout="@layout/fragment_member_details"
         android:label="MemberDetailsFragment" >
         <action
@@ -49,12 +49,12 @@
     </fragment>
     <fragment
         android:id="@+id/commentsFragment"
-        android:name="dev.vstec.parliament2.ui.fragments.CommentsFragment"
+        android:name="fi.shaynek.parliamentfinland.ui.fragments.CommentsFragment"
         android:label="fragment_comments"
         tools:layout="@layout/fragment_comments" />
     <fragment
         android:id="@+id/aboutParliamentFragment"
-        android:name="dev.vstec.parliament2.ui.fragments.AboutParliamentFragment"
+        android:name="fi.shaynek.parliamentfinland.ui.fragments.AboutParliamentFragment"
         android:label="fragment_about_parliament"
         tools:layout="@layout/fragment_about_parliament" />
 </navigation>
