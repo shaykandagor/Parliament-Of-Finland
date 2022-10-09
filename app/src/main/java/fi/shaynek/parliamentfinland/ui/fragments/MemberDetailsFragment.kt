@@ -1,5 +1,7 @@
 package fi.shaynek.parliamentfinland.ui.fragments
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -44,6 +46,7 @@ class MemberDetailsFragment : Fragment() {
         )[MemberDetailsViewModel::class.java]
 
         initUiComponents()
+        addEventListeners()
         return binding.root
     }
 
@@ -114,6 +117,20 @@ class MemberDetailsFragment : Fragment() {
         binding.twitter.setText(extraData.twitterHandle)
         binding.bornYear.setText(extraData.bornYear.toString())
         binding.constituency.setText(extraData.constituency)
+
+    }
+
+    private fun addEventListeners() {
+        binding.twitter.setOnClickListener {
+            binding.twitter.text?.let {
+                if (it.isNotBlank()){
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.data = Uri.parse(binding.twitter.text.toString())
+                    startActivity(intent)
+                }
+
+            }
+        }
 
     }
 }

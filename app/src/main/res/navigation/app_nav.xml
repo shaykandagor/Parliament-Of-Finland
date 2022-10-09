@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_homeFragment_to_aboutParliamentFragment"
             app:destination="@id/aboutParliamentFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_allMembersFragment"
+            app:destination="@id/allMembersFragment" />
     </fragment>
     <fragment
         android:id="@+id/partiesFragment"
@@ -57,4 +60,9 @@
         android:name="fi.shaynek.parliamentfinland.ui.fragments.AboutParliamentFragment"
         android:label="fragment_about_parliament"
         tools:layout="@layout/fragment_about_parliament" />
+    <fragment
+        android:id="@+id/allMembersFragment"
+        android:name="fi.shaynek.parliamentfinland.ui.fragments.AllMembersFragment"
+        android:label="fragment_all_members"
+        tools:layout="@layout/fragment_all_members" />
 </navigation>

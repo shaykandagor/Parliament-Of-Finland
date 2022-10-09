@@ -1,64 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
     tools:context=".ui.fragments.AboutParliamentFragment">
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true">
 
-     <TextView
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:layout_marginTop="38dp"
-         android:layout_margin="20dp"
-         android:text="@string/parliament_finland"
-         android:textAlignment="center"
-         android:textSize="20sp"
-         android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-     <androidx.cardview.widget.CardView
-         android:id="@+id/parliamentCardView"
-         android:layout_width="288dp"
-         android:layout_height="200dp"
-         android:layout_gravity="center"
-         app:cardCornerRadius="4dp">
-
-          <TextView
-              android:layout_width="match_parent"
-              android:layout_height="42dp"
-              android:layout_alignParentStart="true"
-              android:layout_alignParentEnd="true"
-              android:layout_alignParentBottom="true"
-              android:layout_marginStart="0dp"
-              android:layout_marginBottom="424dp"
-              android:text="@string/parliament_text"
-              android:textSize="20sp"
-              android:textStyle="bold" />
-
-     </androidx.cardview.widget.CardView>
-
-     <androidx.cardview.widget.CardView
-         android:id="@+id/historyCardView"
-         android:layout_width="288dp"
-         android:layout_height="200dp"
-         android:layout_gravity="center"
-         app:cardCornerRadius="4dp">
-
-          <TextView
-              android:layout_width="match_parent"
-              android:layout_height="42dp"
-              android:layout_alignParentStart="true"
-              android:layout_alignParentEnd="true"
-              android:layout_alignParentBottom="true"
-              android:layout_marginStart="0dp"
-              android:layout_marginBottom="424dp"
-              android:text="@string/history"
-              android:textSize="20sp"
-              android:textStyle="bold" />
-
-     </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/parliamentHead_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginTop="38dp"
+                android:gravity="center"
+                android:text="@string/parliament_finland"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
 
-</LinearLayout>
+            <ImageView
+                android:id="@+id/parl_building"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/parliament_building_fin" />
+
+            <TextView
+                android:id="@+id/aboutParliamentHead_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginTop="38dp"
+                android:gravity="center"
+                android:text="@string/about_parliament_head"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/aboutParliament_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/P1"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/historyHead_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginTop="38dp"
+                android:gravity="center"
+                android:text="@string/history_head"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/history_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/P1"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <ImageView
+                android:id="@+id/oldParliament"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:layout_marginTop="70dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/eduskunta1907" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/parliament_1907"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/senate"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:layout_marginTop="70dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/senate1917" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/senate"
+                android:textSize="15sp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

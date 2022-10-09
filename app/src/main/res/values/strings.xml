@@ -33,4 +33,41 @@
     <string name="history">History</string>
     <string name="parliament_finland">PARLIAMENT OF FINLAND</string>
     <string name="party_members">Party Members</string>
+    <string name="likes">Likes</string>
+    <string name="comments">Commnts</string>
+    <string name="dislike">Dislikes</string>
+    <string name="member_image">Member Image</string>
+    <string name="parliament_1907">"The first session of the new Parliament in 1907." </string>
+    <string name="senate">"The Finnish Senate of 1917, Prime Minister P. E. Svinhufvud in the head of table."</string>
+
+
+    <string name="P1">
+        "The Parliament of Finland (Finnish: Suomen eduskunta Swedish: Finlands riksdag ) is the unicameral and supreme legislature of Finland, founded on 9 May 1906.
+        In accordance with the Constitution of Finland, sovereignty belongs to the people, and that power is vested in the Parliament.
+        The Parliament consists of 200 members, 199 of whom are elected every four years from 13 multi-member districts electing 7 to 36 members using the proportional D'Hondt method.
+        In addition, there is one member from Åland. Legislation may be initiated by either the Government or one of the members of Parliament.
+        The Parliament passes legislation, decides on the state budget, approves international treaties, and supervises the activities of the government.It may bring about the resignation of the Finnish Government, override presidential vetoes, and alter the constitution.
+        To make changes to the constitution, amendments must be approved by two successive parliaments, with an election cycle in between, or passed as an emergency law with a 167/200 majority.
+        Most MPs work in parliamentary groups which correspond with the political parties.The Parliament currently comprises nine parliamentary groups. Since the establishment of the Parliament in 1905,
+        the parliamentary majority has been held once by a single party: the Social Democrats in the 1916 election. Thus, for the Government to gain a majority in the Parliament, coalition governments are favoured.
+        These are generally formed by at least two of the three historically major parties: the Social Democrats, Centre, and National Coalition. Ministers are often but not necessarily MPs.
+        The Parliament meets in the Parliament House (Finnish: Eduskuntatalo, Swedish: Riksdagshuset), which is located in central Helsinki.
+        The most recent parliamentary election took place on 14 April 2019. The Social Democratic Party, the Centre Party, the Green League, the Left Alliance, and the Swedish People's Party cooperated to form the Rinne Cabinet, a centre-left coalition government.
+        This was succeeded in December 2019 by the Marin Cabinet which is made up of the same parties."
+    </string>
+
+    <string name="P2">
+        "The Parliament of Finland was preceded by the Diet of Finland (Swedish: lantdagen; Finnish: maapäivät, modern Finnish: valtiopäivät), which had succeeded the Riksdag of the Estates in 1809.
+        When the unicameral Parliament of Finland was established by the Parliament Act in 1906, Finland was an autonomous grand duchy and principality under the Imperial Russian Tsar, who ruled as the Grand Duke, rather than as an absolute monarch.
+        Universal suffrage and eligibility was implemented, making Finland the second country in the world to adopt universal suffrage. Women could both vote and run for office as equals, and this applied also to landless people, with no excluded minorities.
+        The first election to the Parliament was arranged in 1907. The first Parliament had 19 female representatives, an unprecedented number at the time, which grew to 21 by 1913.
+        The first years of the new Parliament were difficult. Between 1908 and 1916 the power of the Finnish Parliament was almost completely neutralised by the Russian Tsar Nicholas II and the so-called "sabre senate" of Finland,
+        a bureaucratic government formed by Imperial Russian Army officers during the second period of "Russification". The Parliament was dissolved and new elections were held almost every year.
+        The Finnish Parliament received true political power for the first time after the February Revolution (First Revolution) of 1917 in Russia.
+        Finland declared its independence on 6 December 1917, and in the winter and spring of 1918 endured a civil war in which the forces of the Senate, known as the White Guard, defeated the socialist Red Guard."
+
+
+    </string>
+    <string name="history_head">HISTORY</string>
+    <string name="about_parliament_head">ABOUT PARLIAMENT</string>
 </resources>

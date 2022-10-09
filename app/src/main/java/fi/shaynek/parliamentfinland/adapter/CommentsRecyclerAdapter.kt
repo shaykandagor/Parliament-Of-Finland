@@ -7,6 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import fi.shaynek.parliamentfinland.R
 import fi.shaynek.parliamentfinland.ui.fragments.CommentItem
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * This class is an adapter for the comments recycler view which defines comments list from the users
@@ -20,6 +22,8 @@ class CommentsRecyclerAdapter(private val dataSet: List<CommentItem>): RecyclerV
     inner class CommentCardViewHolder(private val v:View):RecyclerView.ViewHolder(v){
         val author:TextView = v.findViewById(R.id.comment_author)
         val commentContent:TextView = v.findViewById(R.id.comment_content)
+        val timeStamp: TextView = v.findViewById(R.id.comment_created)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentCardViewHolder {
@@ -30,6 +34,8 @@ class CommentsRecyclerAdapter(private val dataSet: List<CommentItem>): RecyclerV
     override fun onBindViewHolder(holder: CommentCardViewHolder, position: Int) {
         holder.author.text = dataSet[position].author
         holder.commentContent.text = dataSet[position].content
+        var date = Date(dataSet[position].timeStamp)
+        holder.timeStamp.text = SimpleDateFormat("dd MMMM yyyy hh:mm:ss", Locale.ENGLISH).format(date)
     }
 
     override fun getItemCount(): Int {

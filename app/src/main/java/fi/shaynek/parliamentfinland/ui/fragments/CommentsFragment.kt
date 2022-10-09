@@ -83,7 +83,8 @@ class CommentsFragment : Fragment() {
                 memberComments.map {
                     return@map CommentItem(
                         author = "Some Author",
-                        content = it.comment
+                        content = it.comment,
+                        timeStamp = it.timeStamp
                     )
                 }
             )

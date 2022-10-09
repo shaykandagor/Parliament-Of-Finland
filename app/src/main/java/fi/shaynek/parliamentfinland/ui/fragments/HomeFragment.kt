@@ -41,7 +41,7 @@ class HomeFragment: Fragment() {
         }
         binding.membersCard.setOnClickListener{
 
-            navController.navigate(R.id.memberDetailsFragment)
+            navController.navigate(R.id.action_homeFragment_to_allMembersFragment)
         }
     }
 }
