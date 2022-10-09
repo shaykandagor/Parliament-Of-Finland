@@ -12,16 +12,26 @@ import fi.shaynek.parliamentfinland.data.viewmodels.CommentsViewModelFactory
 import fi.shaynek.parliamentfinland.app.MainApplication
 import fi.shaynek.parliamentfinland.databinding.FragmentCommentsBinding
 
+/**
+ * This class defines the list comments from users
+ * It also defines how users can add , edit and delete comments
+ * @author Shayne Kandagor
+ * @studentId 2112916
+ * @version 1.0
+ * @since 05.10.2022
+ */
+
 
 class CommentsFragment : Fragment() {
     lateinit var viewModel: CommentsViewModel
     lateinit var binding: FragmentCommentsBinding
     private val hetekaId:Int = 802
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
+
         binding = FragmentCommentsBinding.inflate(inflater)
         viewModel = ViewModelProvider(
             requireActivity(),

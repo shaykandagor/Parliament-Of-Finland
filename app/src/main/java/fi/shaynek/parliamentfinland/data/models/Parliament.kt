@@ -1,5 +1,8 @@
 package fi.shaynek.parliamentfinland.data.models
 
+import android.os.Build
+import androidx.annotation.RequiresApi
+import fi.shaynek.parliamentfinland.R
 import fi.shaynek.parliamentfinland.data.database.entity.MembersBasicData
 
 class Parliament(private val members: List<MembersBasicData>) {
@@ -45,4 +48,22 @@ class Parliament(private val members: List<MembersBasicData>) {
             return sets
         }
     }
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun partyLogo(party: String): Int {
+        val partyLogo = mutableMapOf<String, Int>()
+        partyLogo["r"] = R.drawable.r
+        partyLogo["vkk"] = R.drawable.vkk
+        partyLogo["kd"] = R.drawable.kd
+        partyLogo["kesk"] = R.drawable.kesk
+        partyLogo["kok"] = R.drawable.kok
+        partyLogo["liik"] = R.drawable.liik
+        partyLogo["ps"] = R.drawable.ps
+        partyLogo["sd"] = R.drawable.sd
+        partyLogo["vas"] = R.drawable.vas
+        partyLogo["vihr"] = R.drawable.vihr
+        partyLogo["wr"] = R.drawable.wr
+
+        return partyLogo.getOrDefault(party, R.drawable.finlandflag)
+    }
+
 }

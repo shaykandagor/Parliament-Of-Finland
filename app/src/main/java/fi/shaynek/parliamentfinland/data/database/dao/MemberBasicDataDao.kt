@@ -10,9 +10,10 @@ import fi.shaynek.parliamentfinland.data.database.entity.MembersBasicData
 import kotlinx.coroutines.flow.Flow
 
 /**
- *This classes uses SQLite commands to access and fetch members of parliament data from prepopulate database
+ *This classes uses SQLite commands to access and fetch members of parliament data from the network
  * @author Shayne Kandagor
- * @Version 1.0
+ * @studentId 2112916
+ * @version 1.0
  * @since 26.09.2022
  */
 

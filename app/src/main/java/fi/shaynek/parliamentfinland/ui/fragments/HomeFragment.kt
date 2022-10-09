@@ -10,6 +10,15 @@ import androidx.navigation.fragment.findNavController
 import fi.shaynek.parliamentfinland.R
 import fi.shaynek.parliamentfinland.databinding.FragmentHomeBinding
 
+/**
+ * This class defines what the user can search for about the parliament
+ * It contains the members, political parties, about the parliament and comments from users
+ * @author Shayne Kandagor
+ * @studentId 2112916
+ * @version 1.0
+ * @since 05.10.2022
+ */
+
 class HomeFragment: Fragment() {
     lateinit var navController: NavController
     lateinit var binding: FragmentHomeBinding
@@ -20,8 +29,6 @@ class HomeFragment: Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater)
         addEventListeners()
-//        val navHost = activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-//        navController = navHost.navController
         navController = findNavController()
         return binding.root
     }
@@ -33,7 +40,8 @@ class HomeFragment: Fragment() {
             navController.navigate(R.id.aboutParliamentFragment)
         }
         binding.membersCard.setOnClickListener{
-//            navController.navigate(R.id.)
+
+            navController.navigate(R.id.memberDetailsFragment)
         }
     }
 }

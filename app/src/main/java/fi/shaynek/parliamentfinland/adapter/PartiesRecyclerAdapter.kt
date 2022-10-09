@@ -11,6 +11,14 @@ import androidx.recyclerview.widget.RecyclerView
 import fi.shaynek.parliamentfinland.data.models.PartyItem
 import fi.shaynek.parliamentfinland.R
 
+/**
+ * This class is an adapter for the parties recycler view which defines parties list
+ * @author Shayne Kandagor
+ * @studentId 2112916
+ * @version 1.0
+ * @since 05.10.2022
+ */
+
 class PartiesRecyclerAdapter(private val dataSet: List<PartyItem>) :
     RecyclerView.Adapter<PartiesRecyclerAdapter.PartyCardViewHolder>() {
     inner class PartyCardViewHolder(private val v: View) : RecyclerView.ViewHolder(v) {
@@ -23,7 +31,6 @@ class PartiesRecyclerAdapter(private val dataSet: List<PartyItem>) :
         init {
             partyCard.setOnClickListener {
                 dataSet[adapterPosition].onClick.run()
-                //Toast.makeText(it.context, "${dataSet[adapterPosition]}", Toast.LENGTH_LONG).show()
             }
         }
 
@@ -38,7 +45,7 @@ class PartiesRecyclerAdapter(private val dataSet: List<PartyItem>) :
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: PartyCardViewHolder, position: Int) {
         holder.partyName.text = dataSet[position].title
-        holder.partyHead.text = dataSet[position].head
+        holder.partyHead.text = "Leader: "+ dataSet[position].head
         holder.partyMembersCount.text = "Members: " + dataSet[position].count.toString()
         holder.partyIcon.setImageResource(dataSet[position].icon)
     }

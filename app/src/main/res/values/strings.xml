@@ -29,4 +29,8 @@
     <string name="search_string">Search</string>
     <string name="add_new_party">Add New Party</string>
     <string name="count">Count</string>
+    <string name="parliament_text">About Parliament</string>
+    <string name="history">History</string>
+    <string name="parliament_finland">PARLIAMENT OF FINLAND</string>
+    <string name="party_members">Party Members</string>
 </resources>

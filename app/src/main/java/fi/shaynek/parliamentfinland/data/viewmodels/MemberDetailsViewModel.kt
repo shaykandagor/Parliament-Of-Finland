@@ -10,7 +10,21 @@ import fi.shaynek.parliamentfinland.data.repositories.MembersRepository
 import fi.shaynek.parliamentfinland.utils.Shared
 import kotlinx.coroutines.launch
 
+/**
+ * This class is designed to store and manage UI-related data in a lifecycle conscious way. This
+ * allows members basic and extra data to survive configuration changes such as screen rotations. In addition, background
+ * work such as fetching network results can continue through configuration changes and deliver
+ * results after the new Fragment or Activity is available.
+ *  @author Shayne Kandagor
+ * @studentId 2112916
+ * @Version 1.0
+ * @since 04.09.2022
+ */
+
 class MemberDetailsViewModel(
+    /**
+     * The data source this ViewModel will fetch results from.
+     */
     private val membersRepository: MembersRepository,
 ) :
 
@@ -185,21 +199,6 @@ class MemberDetailsViewModel(
         )
         addBasicData(data)
     }
-
-
-    fun loadImage(url: String) {
-        viewModelScope.launch {
-            try {
-                val img_url = "${Shared.IMG_BASE_URL}$url"
-                img.value = membersRepository.getBitMap(img_url)
-                Log.d("Ous:Success load: ", img_url)
-            } catch (e: Exception) {
-                Log.d("Ous:bmap", e.toString())
-            }
-
-        }
-    }
-
 }
 
 class MemberDetailsViewModelFactory(

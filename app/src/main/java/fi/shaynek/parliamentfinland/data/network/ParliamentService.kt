@@ -6,7 +6,11 @@ import retrofit2.http.GET
 
 /**
  * This interface defines how Retrofit communicates with the web server using HTTP requests.
- * It defines fetching pf the mebers basic and extra data
+ * It defines fetching of the members basic and extra data
+ * @author Shayne Kandagor
+ * @studentId 2112916
+ * @version 1.0
+ * @since 26.09.2022
  */
 
 interface ParliamentService {

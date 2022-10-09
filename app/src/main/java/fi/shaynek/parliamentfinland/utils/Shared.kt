@@ -1,10 +1,11 @@
 package fi.shaynek.parliamentfinland.utils
 
 /**
- *  This class defines the base Url of the basic and extra data of the members and also the images
+ *  It defines the base Url of the basic and extra data of the members and also the images
  *  @author Shayne Kandagor
+ *  @studentId 2112916
  *  @version 1.0
- * @since 01.10.2022
+ *  @since 01.10.2022
  */
 class Shared {
     companion object{

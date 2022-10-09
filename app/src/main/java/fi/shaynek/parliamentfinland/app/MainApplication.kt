@@ -8,6 +8,10 @@ import fi.shaynek.parliamentfinland.data.repositories.MembersRepository
 
 /**
  * This class is singleton - only one instance is guaranteed to ever exist.
+ * @author Shayne Kandagor
+ * @studentId 2112916
+ * @Version 1.0
+ * @since 29.09.2022
  */
 
 class MainApplication : Application() {

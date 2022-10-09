@@ -17,10 +17,10 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="388dp"
+                android:layout_height="117dp"
                 android:layout_centerInParent="true"
-                android:src="@drawable/parl_building" />
+                android:src="@drawable/icon" />
         </RelativeLayout>
 
         <Space
@@ -153,14 +153,14 @@
                         android:id="@+id/notes_ic"
                         android:layout_width="200dp"
                         android:layout_height="200dp"
-                        android:src="@drawable/ic_notes" />
+                        android:src="@drawable/ic_comment" />
 
                     <TextView
                         android:gravity="center"
                         android:layout_alignBottom="@+id/notes_ic"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Notes" />
+                        android:text="Comments" />
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>

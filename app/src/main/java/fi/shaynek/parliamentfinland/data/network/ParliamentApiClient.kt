@@ -7,9 +7,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 /**
- * This class is used to enhance communication between te viewModel and the web service
+ * This class is used to enhance communication between the viewModel and the web service
  * Implementation of Retrofit service API and Moshi
  * @author Shayne Kandagor
+ * @studentId 2112916
  * @version 1.0
  * @since 27.09.2022
  */

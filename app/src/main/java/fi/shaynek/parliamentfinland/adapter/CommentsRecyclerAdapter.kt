@@ -8,6 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import fi.shaynek.parliamentfinland.R
 import fi.shaynek.parliamentfinland.ui.fragments.CommentItem
 
+/**
+ * This class is an adapter for the comments recycler view which defines comments list from the users
+ * @author Shayne Kandagor
+ * @studentId 2112916
+ * @version 1.0
+ * @since 05.10.2022
+ */
+
 class CommentsRecyclerAdapter(private val dataSet: List<CommentItem>): RecyclerView.Adapter<CommentsRecyclerAdapter.CommentCardViewHolder>() {
     inner class CommentCardViewHolder(private val v:View):RecyclerView.ViewHolder(v){
         val author:TextView = v.findViewById(R.id.comment_author)

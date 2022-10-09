@@ -5,7 +5,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/parl_seats"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,7 +18,9 @@
             android:layout_width="240dp"
             android:layout_height="240dp"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="-2dp"
+            android:layout_marginEnd="87dp"
             android:layout_marginBottom="453dp"
             android:src="@drawable/logo" />
 

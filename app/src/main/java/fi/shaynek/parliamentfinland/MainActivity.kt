@@ -13,6 +13,14 @@ import fi.shaynek.parliamentfinland.data.viewmodels.MemberDetailsViewModel
 import fi.shaynek.parliamentfinland.data.viewmodels.MemberDetailsViewModelFactory
 import fi.shaynek.parliamentfinland.databinding.ActivityMainBinding
 
+/**
+ * This class defines the___________
+ * @author Shayne Kandagor
+ * @studentId 2112916
+ * @version 1.0
+ * @since 05.10.2022
+ */
+
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding

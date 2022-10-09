@@ -18,6 +18,15 @@ import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URL
 
+
+/**
+ * Repository for fetching members basic and extra data from the network and storing them on disk
+ *  @author Shayne Kandagor
+ * @studentId 2112916
+ * @Version 1.0
+ * @since 04.09.2022
+ */
+
 class MembersRepository(
     private val membersBasicDataDao: MemberBasicDataDao,
     private val membersExtraDataDao: MembersExtraDataDao,
@@ -45,12 +54,8 @@ class MembersRepository(
         for (bsd in data) {
             try {
                 addBasicData(bsd)
-                //Log.d("Ous", "added: $bsd")
-                println("Ous: added: $bsd ")
             } catch (e: Exception) {
                 basicDataStatus.value = ParliamentApiStatus.ERROR
-                Log.d("Ous:ERROR$bsd", e.toString())
-                println("Ous:ERROR$bsd ${e.toString()}")
             }
 
         }
@@ -64,15 +69,9 @@ class MembersRepository(
         for (ex in data) {
             try {
                 addExtraData(ex)
-                //Log.d("Ous", "added: $ex")
-                println("Ous: added: $ex ")
             } catch (e: Exception) {
                 extraDataStatus.value = ParliamentApiStatus.ERROR
-                Log.d("Ous:ERROR$ex", e.toString())
-                Log.d("Ous:bse${ex.hetekaId}", listResult.filter {
-                    return@filter it.hetekaId == ex.hetekaId
-                }.toString())
-                println("Ous:ERROR$ex ${e.toString()}")
+
             }
 
         }
@@ -103,48 +102,4 @@ class MembersRepository(
     suspend fun updateExtraData(membersExtraData: MembersExtraData) {
         membersExtraDataDao.updateMemberExtraData(membersExtraData)
     }
-
-    suspend fun getBitMap(url: String): Bitmap {
-        /**
-         * Throws 2 errors
-         */
-        /*
-        lateinit var photoUrl: URL
-        lateinit var btMap: Bitmap
-        */
-        val photoUrl = URL(url)
-        val conn: HttpURLConnection =
-            withContext(Dispatchers.IO) {
-                photoUrl.openConnection()
-            } as HttpURLConnection
-        conn.doInput = true
-        withContext(Dispatchers.IO) {
-            conn.connect()
-        }
-        val inputStream: InputStream = conn.inputStream
-        val btMap = BitmapFactory.decodeStream(inputStream)
-        withContext(Dispatchers.IO) {
-            inputStream.close()
-        }
-        /*try {
-            photoUrl = URL(url)
-
-        } catch (e: MalformedURLException) {
-            Log.d("Ous", e.toString())
-        }
-        try {
-            val conn: HttpURLConnection = photoUrl.openConnection() as HttpURLConnection
-            conn.doInput = true
-            conn.connect()
-            val inputStream: InputStream = conn.inputStream
-            btMap = BitmapFactory.decodeStream(inputStream)
-            inputStream.close()
-
-        } catch (e: Exception) {
-            Log.d("Ous", e.toString())
-        }*/
-        return btMap
-    }
-
-
 }

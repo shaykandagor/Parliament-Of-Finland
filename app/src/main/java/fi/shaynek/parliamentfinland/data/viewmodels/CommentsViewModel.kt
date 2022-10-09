@@ -5,6 +5,18 @@ import fi.shaynek.parliamentfinland.data.database.entity.Comments
 import fi.shaynek.parliamentfinland.data.repositories.CommentsRepository
 import kotlinx.coroutines.launch
 
+/**
+ * This class is designed to store and manage UI-related data in a lifecycle conscious way. This
+ * allows comments data to survive configuration changes such as screen rotations. In addition, background
+ * work such as fetching network results can continue through configuration changes and deliver
+ * results after the new Fragment or Activity is available.
+ * @author Shayne Kandagor
+ * @studentId 2112916
+ * @Version 1.0
+ * @since 04.09.2022
+ *
+ */
+
 class CommentsViewModel(private val commentsRepository: CommentsRepository) : ViewModel() {
     val comments: LiveData<List<Comments>> = commentsRepository.getComments().asLiveData()
     fun memberComments(hetekaId: Int): LiveData<List<Comments>> {

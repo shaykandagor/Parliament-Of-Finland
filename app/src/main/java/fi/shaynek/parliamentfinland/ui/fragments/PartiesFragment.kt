@@ -1,5 +1,6 @@
 package fi.shaynek.parliamentfinland.ui.fragments
 
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,11 +11,11 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import fi.shaynek.parliamentfinland.MainActivity
 import fi.shaynek.parliamentfinland.R
 import fi.shaynek.parliamentfinland.adapter.PartiesRecyclerAdapter
 import fi.shaynek.parliamentfinland.app.MainApplication
@@ -24,10 +25,19 @@ import fi.shaynek.parliamentfinland.data.viewmodels.MemberDetailsViewModel
 import fi.shaynek.parliamentfinland.data.viewmodels.MemberDetailsViewModelFactory
 import fi.shaynek.parliamentfinland.databinding.FragmentPartiesBinding
 
+/**
+ * This class defines political party list
+ * @author Shayne Kandagor
+ * @studentId 2112916
+ * @version 1.0
+ * @since 05.10.2022
+ */
+
 class PartiesFragment : Fragment() {
     lateinit var binding: FragmentPartiesBinding
     private lateinit var viewModel: MemberDetailsViewModel
     lateinit var navController: NavController
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,14 +55,9 @@ class PartiesFragment : Fragment() {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     private fun addObservers() {
-        val partyIcons: Array<Int> = arrayOf(
-            R.drawable.ic_account,
-            android.R.drawable.ic_delete,
-            android.R.drawable.ic_btn_speak_now,
-            android.R.drawable.ic_lock_idle_alarm,
 
-            )
         viewModel.basicData.observe(requireActivity(), Observer { members ->
             val parlament = Parliament(members)
             val parties = parlament.parties()
@@ -62,7 +67,7 @@ class PartiesFragment : Fragment() {
                     head = "${
                         parlament.partyMembers(party).first().firstName
                     } ${parlament.partyMembers(party).first().lastName}",
-                    icon = partyIcons.random(),
+                    icon = parlament.partyLogo(party),
                     count = parlament.partyMembers(party).size,
                     onClick = {
                         Toast.makeText(requireActivity(), party, Toast.LENGTH_LONG).show()

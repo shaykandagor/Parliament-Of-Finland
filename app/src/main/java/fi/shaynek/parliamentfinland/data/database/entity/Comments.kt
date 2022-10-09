@@ -10,6 +10,7 @@ import java.util.Date
 /**
  * This class defines comments from the users that can be fetched from database
  * @author Shayne Kandagor
+ * @studentId 2112916
  * @version 1.0
  * @since 26.09.2022
  */

@@ -7,12 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import fi.shaynek.parliamentfinland.R
 
-
 /**
- * A simple [Fragment] subclass.
- * Use the [MembersListFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * This class defines members list
+ * @author Shayne Kandagor
+ * @studentId 2112916
+ * @version 1.0
+ * @since 05.10.2022
  */
+
+
 class MembersListFragment : Fragment() {
 
 

@@ -9,6 +9,7 @@ import com.squareup.moshi.Json
 /**
  * This class defines extra members details fetched from the database
  * @author Shayne Kandagor
+ * @studentId 2112916
  * @version 1.0
  * @since 29.09.2022
  */

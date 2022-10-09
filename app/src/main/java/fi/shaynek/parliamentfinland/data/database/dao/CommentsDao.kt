@@ -11,6 +11,7 @@ import fi.shaynek.parliamentfinland.data.database.entity.Comments
 /**
  * This class uses SQLite commands to access, fetch and insert/delete comments of users about members of parliament from database
  * @author Shayne Kandagor
+ * @studentId 2112916
  * @version 1.0
  * @since 26.09.2022
  */
