@@ -12,7 +12,7 @@ import fi.shaynek.parliamentfinland.data.models.PartyItem
 import fi.shaynek.parliamentfinland.R
 
 /**
- * This class is an adapter for the parties recycler view which defines parties list
+ * It defines all political parties in a list
  * @author Shayne Kandagor
  * @studentId 2112916
  * @version 1.0

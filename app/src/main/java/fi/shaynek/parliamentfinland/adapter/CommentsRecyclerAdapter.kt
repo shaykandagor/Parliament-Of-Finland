@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 /**
- * This class is an adapter for the comments recycler view which defines comments list from the users
+ * It defines all comments from users about members in a list
  * @author Shayne Kandagor
  * @studentId 2112916
  * @version 1.0

@@ -26,7 +26,9 @@ import fi.shaynek.parliamentfinland.data.viewmodels.MemberDetailsViewModelFactor
 import fi.shaynek.parliamentfinland.databinding.FragmentPartiesBinding
 
 /**
- * This class defines political party list
+ * It defines the political parties of the members
+ * It also defines the logos of the members, the total number of members in that particular party
+ * and the members of the particular party when clicked by the users
  * @author Shayne Kandagor
  * @studentId 2112916
  * @version 1.0

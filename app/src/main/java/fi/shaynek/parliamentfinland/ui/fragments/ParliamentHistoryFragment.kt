@@ -5,24 +5,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import fi.shaynek.parliamentfinland.R
+import fi.shaynek.parliamentfinland.databinding.FragmentParliamentHistoryBinding
 
 /**
- * This class defines the parties list
+ * This fragment displays brief information about the parliament of Finland and its history
  * @author Shayne Kandagor
  * @studentId 2112916
  * @version 1.0
  * @since 05.10.2022
  */
-class PartiesListFragment : Fragment() {
+
+
+class ParliamentHistoryFragment : Fragment() {
+    lateinit var binding: FragmentParliamentHistoryBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        return inflater.inflate(R.layout.fragment_parties, container, false)
+        binding = FragmentParliamentHistoryBinding.inflate(inflater)
+        return binding.root
     }
-
 
 }

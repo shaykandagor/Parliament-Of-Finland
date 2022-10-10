@@ -1,4 +1,4 @@
-package fi.shaynek.parliamentfinland
+package fi.shaynek.parliamentfinland.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
+import fi.shaynek.parliamentfinland.R
 import fi.shaynek.parliamentfinland.app.MainApplication
 import fi.shaynek.parliamentfinland.data.viewmodels.MemberDetailsViewModel
 import fi.shaynek.parliamentfinland.data.viewmodels.MemberDetailsViewModelFactory

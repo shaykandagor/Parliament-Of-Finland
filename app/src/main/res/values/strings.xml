@@ -65,9 +65,59 @@
         a bureaucratic government formed by Imperial Russian Army officers during the second period of "Russification". The Parliament was dissolved and new elections were held almost every year.
         The Finnish Parliament received true political power for the first time after the February Revolution (First Revolution) of 1917 in Russia.
         Finland declared its independence on 6 December 1917, and in the winter and spring of 1918 endured a civil war in which the forces of the Senate, known as the White Guard, defeated the socialist Red Guard."
+    </string>
 
+    <string name="P3">
+    "Type:               Unicameral
+
+    HISTORY
+        Founded:        9 May 1906; 116 years ago
+        Preceded by:    Diet of Finland
+
+    LEADERSHIP
+        Speaker:        Matti Vanhanen, Centre Party
+                        since 1 February 2022
+        First deputy speaker:   Antti Rinne, Social Democratic Party
+                                since 1 June 2021
+        Second deputy speaker:  Juho Eerola, Finns Party
+                                since 7 June 2019
+
+
+    POLITICAL GROUPS
+        Government (117)
+        Social Democratic Party (40)
+        Centre Party (31)
+        Green League (20)
+        Left Alliance (16)
+        Swedish People's Party (10)
+        Åland Coalition (1)
+    Opposition (83)
+        Finns Party (38)
+        National Coalition (37)
+        Christian Democrats (5)
+        Movement Now (1)
+        Power Belongs to the People (1)
+        Independent (1)
+
+    Committees:     17
+
+    Length of term:  4 years
+
+    Salary:     €6,614 monthly
+
+    Elections
+        Voting system:  Open list proportional representation
+        First election: 16 April 1907
+        Last election:  14 April 2019
+        Next election:  2023 or earlier"
 
     </string>
     <string name="history_head">HISTORY</string>
     <string name="about_parliament_head">ABOUT PARLIAMENT</string>
+    <string name="structure">Structure</string>
+    <string name="finland_logo">FINLAND LOGO</string>
+    <string name="logo">Logo</string>
+    <string name="parliament_heading">parliament heading</string>
+    <string name="parliament_seating_structure">parliament seating structure</string>
+    <string name="follow">Follow</string>
 </resources>

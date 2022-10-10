@@ -20,7 +20,7 @@ import fi.shaynek.parliamentfinland.databinding.FragmentMemberDetailsBinding
 import fi.shaynek.parliamentfinland.utils.Shared
 
 /**
- * This class defines details about members of parliament
+ * It defines basic and extra details about members of parliament
  * @author Shayne Kandagor
  * @studentId 2112916
  * @version 1.0
@@ -97,9 +97,6 @@ class MemberDetailsFragment : Fragment() {
         }
     }
 
-    /**
-     *
-     */
 
     private fun populateBasicDetailFields(basicData: MembersBasicData) {
         binding.hetekaId.setText(basicData.hetekaId.toString())
@@ -115,13 +112,13 @@ class MemberDetailsFragment : Fragment() {
     private fun populateExtraDetailFields(extraData: MembersExtraData) {
 
         binding.twitter.setText(extraData.twitterHandle)
-        binding.bornYear.setText(extraData.bornYear.toString())
+        binding.borneYear.setText(extraData.bornYear.toString())
         binding.constituency.setText(extraData.constituency)
 
     }
 
     private fun addEventListeners() {
-        binding.twitter.setOnClickListener {
+        binding.twitterFollowBtn.setOnClickListener {
             binding.twitter.text?.let {
                 if (it.isNotBlank()){
                     val intent = Intent(Intent.ACTION_VIEW)

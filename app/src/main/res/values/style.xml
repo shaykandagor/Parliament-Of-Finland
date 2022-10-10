@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="outlinedInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
+    <style name="outlined_text_input" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
         <item name="android:padding">
             4dp
         </item>
         <item name="android:layout_margin">
-            8dp
+            6dp
         </item>
+        <item name="android:enabled">
+            false
+        </item>
+    </style>
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 </resources>

@@ -11,8 +11,8 @@ import fi.shaynek.parliamentfinland.R
 import fi.shaynek.parliamentfinland.databinding.FragmentHomeBinding
 
 /**
- * This class defines what the user can search for about the parliament
- * It contains the members, political parties, about the parliament and comments from users
+ * It defines what the user can search for about the parliament
+ * It contains the members, political parties, about the parliament and ??????+
  * @author Shayne Kandagor
  * @studentId 2112916
  * @version 1.0
@@ -37,11 +37,15 @@ class HomeFragment: Fragment() {
             navController.navigate(R.id.partiesFragment)
         }
         binding.aboutParliamentCard.setOnClickListener{
-            navController.navigate(R.id.aboutParliamentFragment)
+            navController.navigate(R.id.parliamentHistoryFragment)
         }
         binding.membersCard.setOnClickListener{
 
             navController.navigate(R.id.action_homeFragment_to_allMembersFragment)
+        }
+        binding.aboutParliament.setOnClickListener{
+
+            navController.navigate(R.id.aboutParliamentFragment2)
         }
     }
 }

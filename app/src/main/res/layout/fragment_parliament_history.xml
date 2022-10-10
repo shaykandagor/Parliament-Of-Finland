@@ -8,7 +8,7 @@
     android:paddingTop="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
-    tools:context=".ui.fragments.AboutParliamentFragment">
+    tools:context=".ui.fragments.ParliamentHistoryFragment">
 
 
     <LinearLayout
@@ -31,65 +31,81 @@
 
 
         <ImageView
-            android:id="@+id/parliament_icon"
-            android:layout_width="355dp"
-            android:layout_height="188dp"
-            android:layout_marginTop="10dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/parliament_inside" />
-
-        <TextView
+            android:id="@+id/parl_building"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginTop="38dp"
-            android:gravity="center"
-            android:text="@string/P3"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/parliament_building_fin" />
 
         <TextView
+            android:id="@+id/aboutParliamentHead_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:layout_marginTop="38dp"
             android:gravity="center"
-            android:text="@string/structure"
+            android:text="@string/about_parliament_head"
             android:textAlignment="center"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="20sp"
             android:textStyle="bold" />
 
 
+        <TextView
+            android:id="@+id/aboutParliament_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/P1"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/historyHead_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="38dp"
+            android:gravity="center"
+            android:text="@string/history_head"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/history_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/P1"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
         <ImageView
-            android:id="@+id/structure_ImageView"
+            android:id="@+id/oldParliament"
             android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:layout_marginTop="70dp"
-            android:contentDescription="@string/parliament_seating_structure"
             android:scaleType="fitXY"
-            android:src="@drawable/seating_structure" />
+            android:src="@drawable/eduskunta1907" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginTop="38dp"
-            android:gravity="center"
-            android:text="@string/finland_logo"
-            android:textAlignment="center"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:text="@string/parliament_1907"
+            android:textSize="15sp" />
 
         <ImageView
+            android:id="@+id/senate"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_marginTop="70dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/senate1917" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:contentDescription="@string/logo"
-            android:scaleType="fitXY"
-            android:src="@drawable/logo" />
+            android:text="@string/senate"
+            android:textSize="15sp" />
 
 
     </LinearLayout>

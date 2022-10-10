@@ -8,7 +8,7 @@ import com.squareup.moshi.Json
 import java.util.Date
 
 /**
- * This class defines comments from the users that can be fetched from database
+ * It defines comments from the users that can be fetched from database
  * @author Shayne Kandagor
  * @studentId 2112916
  * @version 1.0

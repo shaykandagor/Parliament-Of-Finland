@@ -13,8 +13,9 @@ import fi.shaynek.parliamentfinland.app.MainApplication
 import fi.shaynek.parliamentfinland.databinding.FragmentCommentsBinding
 
 /**
- * This class defines the list comments from users
+ * It defines the list comments from users
  * It also defines how users can add , edit and delete comments
+ * Comments are arranged from oldest to newest
  * @author Shayne Kandagor
  * @studentId 2112916
  * @version 1.0

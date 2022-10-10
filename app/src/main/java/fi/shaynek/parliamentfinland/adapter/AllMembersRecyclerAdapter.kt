@@ -22,6 +22,14 @@ import fi.shaynek.parliamentfinland.data.database.entity.MembersBasicData
 import fi.shaynek.parliamentfinland.data.database.entity.MembersExtraData
 import fi.shaynek.parliamentfinland.utils.Shared
 
+/**
+ * It defines all members of parliament in a list with their details
+ * @author Shayne Kandagor
+ * @studentId 2112916
+ * @version 1.0
+ * @since 06.10.2022
+ */
+
 class AllMembersRecyclerAdapter(
     private val lifecycleOwner: LifecycleOwner,
     private val basicData: LiveData<List<MembersBasicData>>,

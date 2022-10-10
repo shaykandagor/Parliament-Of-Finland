@@ -15,9 +15,13 @@ import fi.shaynek.parliamentfinland.data.viewmodels.MemberDetailsViewModelFactor
 import fi.shaynek.parliamentfinland.databinding.FragmentAllMembersBinding
 
 /**
- *
+ * It defines the comments about all members in a list
+ * It also defines the reactions of users about members counts the number likes and dislikes
+ * @author Shayne Kandagor
+ * @studentId 2112916
+ * @version 1.0
+ * @since 06.10.2022
  */
-
 
 class AllMembersFragment : Fragment() {
     lateinit var binding: FragmentAllMembersBinding
