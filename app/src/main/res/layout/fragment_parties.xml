@@ -40,6 +40,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
+        android:visibility="gone"
         android:contentDescription="@string/add_new_party"
         android:src="@android:drawable/ic_search_category_default" />
 

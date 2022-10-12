@@ -11,7 +11,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
  * Implementation of Retrofit service API and Moshi
  * @author Shayne Kandagor
  * @studentId 2112916
- * @version 1.0
+ * @version 3.0
  * @since 27.09.2022
  */
 

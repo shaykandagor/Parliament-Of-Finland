@@ -10,7 +10,7 @@ import com.squareup.moshi.Json
  * This class defines Member basic details whose information can be fetched from database
  * @author Shayne Kandagor
  * @studentId 2112916
- * @version 1.0
+ * @version 3.0
  * @since 26.09.2022
  */
 

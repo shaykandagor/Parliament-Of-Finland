@@ -1,29 +1,20 @@
 package fi.shaynek.parliamentfinland.data.repositories
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.*
 import fi.shaynek.parliamentfinland.data.database.dao.MemberBasicDataDao
 import fi.shaynek.parliamentfinland.data.database.dao.MembersExtraDataDao
 import fi.shaynek.parliamentfinland.data.database.entity.MembersBasicData
 import fi.shaynek.parliamentfinland.data.database.entity.MembersExtraData
 import fi.shaynek.parliamentfinland.data.network.ParliamentApiStatus
 import fi.shaynek.parliamentfinland.data.network.ParliamentService
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-import java.io.InputStream
-import java.net.HttpURLConnection
-import java.net.URL
+import kotlinx.coroutines.*
 
 
 /**
  * Repository for fetching members basic and extra data from the network and storing them on disk
  *  @author Shayne Kandagor
  * @studentId 2112916
- * @Version 1.0
+ * @version 1.0
  * @since 04.09.2022
  */
 
@@ -34,7 +25,13 @@ class MembersRepository(
 ) {
     val basicDataStatus = MutableLiveData<ParliamentApiStatus>()
     val extraDataStatus = MutableLiveData<ParliamentApiStatus>()
-    val fectStatus = MutableLiveData<ParliamentApiStatus>(ParliamentApiStatus.LOADING)
+
+    /**
+     * @param fetchStatus indicates when both basic and extra data
+     * have been fetched from the network and saved in the database successfully
+     * That is both basic and extra data status equals to DONE
+     */
+    val fetchStatus = MutableLiveData<ParliamentApiStatus>(ParliamentApiStatus.LOADING)
     private val _basicData = membersBasicDataDao.getMembersBasicData().asLiveData()
     private val _extraData = membersExtraDataDao.getMembersExtraData().asLiveData()
 
@@ -44,47 +41,46 @@ class MembersRepository(
     val extraData: LiveData<List<MembersExtraData>>
         get() = _extraData
 
-    //TODO DELETE ME
-    private lateinit var listResult: List<MembersBasicData>
+    /**
+     * It fetches parliament member basic data from the web RESTFUL server and
+     * returns a list of basic data objects using ParliamentApi service
+     * basicDataStatus indicates the current status of basic data fetch operation
+     * ie DONE when loaded successfully from the network
+     * LOADING when the basic data is still loading
+     * ERROR when a network error occurs
+     */
 
-    suspend fun fetchBasicData(): List<MembersBasicData> {
+    suspend fun fetchBasicData(){
         basicDataStatus.value = ParliamentApiStatus.LOADING
-        val data = apiClient.getBasicData()
-        listResult = data
-        for (bsd in data) {
+        val membersBasicData = apiClient.getBasicData()
+        membersBasicData.forEach{
             try {
-                addBasicData(bsd)
+                addBasicData(it)
             } catch (e: Exception) {
                 basicDataStatus.value = ParliamentApiStatus.ERROR
             }
 
         }
         basicDataStatus.value = ParliamentApiStatus.DONE
-        return data
+
     }
 
-    suspend fun fetchExtraData(): List<MembersExtraData> {
+    /**
+     * Similar to fetchBasicData except that its done on extra data
+     */
+
+    private suspend fun fetchExtraData() {
         extraDataStatus.value = ParliamentApiStatus.LOADING
-        val data = apiClient.getExtraData()
-        for (ex in data) {
+        val membersExtraData = apiClient.getExtraData()
+        membersExtraData.forEach {
             try {
-                addExtraData(ex)
+                addExtraData(it)
             } catch (e: Exception) {
                 extraDataStatus.value = ParliamentApiStatus.ERROR
 
             }
-
         }
         extraDataStatus.value = ParliamentApiStatus.DONE
-        return data
-    }
-
-    fun getBasicData(hetekaId: Int): LiveData<List<MembersBasicData>> {
-        return membersBasicDataDao.getMemberBasicData(hetekaId).asLiveData()
-    }
-
-    fun getExtraData(hetekaId: Int): LiveData<List<MembersExtraData>> {
-        return membersExtraDataDao.getMemberExtraData(hetekaId).asLiveData()
     }
 
     suspend fun addBasicData(membersBasicData: MembersBasicData) {
@@ -101,5 +97,50 @@ class MembersRepository(
 
     suspend fun updateExtraData(membersExtraData: MembersExtraData) {
         membersExtraDataDao.updateMemberExtraData(membersExtraData)
+    }
+    /**
+     * This synchronizes fetching of basic and extra data from the network
+     * and storing them in the database using basicDataStatus and extraDataStatus
+     * This ensures that basic data is fetched and stored in the database first
+     * and saved  before fetching and storing extra data in the database
+     * This is essential to avoid SQLConstraint Exception which may arise when storing
+     * extra data with no related basic data in the parent table due to parent-child relationship
+     * between basic data(parent) and extra data(child) entity
+     */
+
+    fun syncFetch(lifecycleOwner: LifecycleOwner,scope: CoroutineScope
+    ) {
+        scope.launch {
+            fetchBasicData()
+
+            basicDataStatus.observe(lifecycleOwner, Observer {
+                if (it == ParliamentApiStatus.DONE) {
+                    scope.launch {
+                        fetchExtraData()
+                    }
+                } else if (it == ParliamentApiStatus.LOADING) {
+                    fetchStatus.value = ParliamentApiStatus.LOADING
+                    extraDataStatus.value = ParliamentApiStatus.LOADING
+                } else {
+                    fetchStatus.value = ParliamentApiStatus.ERROR
+                    extraDataStatus.value = ParliamentApiStatus.ERROR
+                }
+            })
+            extraDataStatus.observe(lifecycleOwner, Observer {
+                if (it == ParliamentApiStatus.DONE) {
+                    fetchStatus.value = ParliamentApiStatus.DONE
+                } else if (it == ParliamentApiStatus.LOADING) {
+                    fetchStatus.value = ParliamentApiStatus.LOADING
+                } else {
+                    fetchStatus.value = ParliamentApiStatus.ERROR
+                }
+            })
+           }
+    }
+
+    suspend fun refreshData() {
+        withContext(Dispatchers.IO) {
+
+        }
     }
 }

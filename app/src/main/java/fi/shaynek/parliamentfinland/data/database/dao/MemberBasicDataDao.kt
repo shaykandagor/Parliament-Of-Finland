@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.Flow
  *This classes uses SQLite commands to access and fetch members of parliament data from the network
  * @author Shayne Kandagor
  * @studentId 2112916
- * @version 1.0
+ * @version 3.0
  * @since 26.09.2022
  */
 

@@ -68,13 +68,15 @@
     </string>
 
     <string name="P3">
-    "Type:               Unicameral
+    "   Type:               Unicameral
 
-    HISTORY
+                HISTORY
+
         Founded:        9 May 1906; 116 years ago
         Preceded by:    Diet of Finland
 
-    LEADERSHIP
+                LEADERSHIP
+
         Speaker:        Matti Vanhanen, Centre Party
                         since 1 February 2022
         First deputy speaker:   Antti Rinne, Social Democratic Party
@@ -83,7 +85,8 @@
                                 since 7 June 2019
 
 
-    POLITICAL GROUPS
+                POLITICAL GROUPS
+
         Government (117)
         Social Democratic Party (40)
         Centre Party (31)
@@ -91,7 +94,9 @@
         Left Alliance (16)
         Swedish People's Party (10)
         Åland Coalition (1)
-    Opposition (83)
+
+            Opposition (83)
+
         Finns Party (38)
         National Coalition (37)
         Christian Democrats (5)
@@ -99,17 +104,18 @@
         Power Belongs to the People (1)
         Independent (1)
 
-    Committees:     17
+        Committees:     17
 
-    Length of term:  4 years
+        Length of term:  4 years
 
-    Salary:     €6,614 monthly
+        Salary:     €6,614 monthly
 
-    Elections
-        Voting system:  Open list proportional representation
-        First election: 16 April 1907
-        Last election:  14 April 2019
-        Next election:  2023 or earlier"
+        Elections
+
+        Voting system:      Open list proportional representation
+        First election:     16 April 1907
+        Last election:      14 April 2019
+        Next election:      2023 or earlier"
 
     </string>
     <string name="history_head">HISTORY</string>
@@ -120,4 +126,13 @@
     <string name="parliament_heading">parliament heading</string>
     <string name="parliament_seating_structure">parliament seating structure</string>
     <string name="follow">Follow</string>
+    <string name="fragment_home">Home</string>
+    <string name="fragment_parties">Political Parties</string>
+    <string name="fragment_party_detailed">Party</string>
+    <string name="MemberDetailsFragment">Parliament Member</string>
+    <string name="fragment_comments">Comments</string>
+    <string name="parliament_history_fragment">Parliament History</string>
+    <string name="fragment_all_members">Parliament Members</string>
+    <string name="fragment_about_parliament">About Parliament</string>
+
 </resources>

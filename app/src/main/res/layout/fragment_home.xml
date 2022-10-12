@@ -153,7 +153,7 @@
                         android:id="@+id/notes_ic"
                         android:layout_width="200dp"
                         android:layout_height="200dp"
-                        android:src="@drawable/ic_comment" />
+                        android:src="@drawable/ic_building" />
 
                     <TextView
                         android:gravity="center"

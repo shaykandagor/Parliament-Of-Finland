@@ -6,12 +6,15 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import fi.shaynek.parliamentfinland.R
-import fi.shaynek.parliamentfinland.ui.fragments.CommentItem
+import fi.shaynek.parliamentfinland.data.models.CommentItem
 import java.text.SimpleDateFormat
 import java.util.*
 
 /**
  * It defines all comments from users about members in a list
+ * @param author defines the user who wrote the comment
+ * @param commentContent defines the the comment
+ * @param timeStamp defines the time and date the comment was created
  * @author Shayne Kandagor
  * @studentId 2112916
  * @version 1.0
@@ -34,7 +37,7 @@ class CommentsRecyclerAdapter(private val dataSet: List<CommentItem>): RecyclerV
     override fun onBindViewHolder(holder: CommentCardViewHolder, position: Int) {
         holder.author.text = dataSet[position].author
         holder.commentContent.text = dataSet[position].content
-        var date = Date(dataSet[position].timeStamp)
+        val date = Date(dataSet[position].created)
         holder.timeStamp.text = SimpleDateFormat("dd MMMM yyyy hh:mm:ss", Locale.ENGLISH).format(date)
     }
 

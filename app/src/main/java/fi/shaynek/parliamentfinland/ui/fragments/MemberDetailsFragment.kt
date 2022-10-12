@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -32,6 +31,7 @@ class MemberDetailsFragment : Fragment() {
     private lateinit var viewModel: MemberDetailsViewModel
     private lateinit var binding: FragmentMemberDetailsBinding
     private var hetekaId: Int? = null
+    private var partyMembersHetekaIds: MutableList<Int> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,10 +55,13 @@ class MemberDetailsFragment : Fragment() {
      */
     private fun initUiComponents() {
         viewModel.basicData.observe(requireActivity(), Observer {
+            it.forEach {
+                partyMembersHetekaIds.add(it.hetekaId)
+            }
             hetekaId?.let { _id ->
                 val memberBasic = getMemberBasic(_id, it)
                 if (memberBasic != null) {
-                    populateBasicDetailFields(memberBasic as MembersBasicData)
+                    populateBasicDetailFields(memberBasic)
                 }
             }
         })
@@ -127,6 +130,29 @@ class MemberDetailsFragment : Fragment() {
                 }
 
             }
+        }
+        binding.next.setOnClickListener {
+            var currentIndex = partyMembersHetekaIds.indexOf(hetekaId)
+            if (currentIndex != -1){
+                var nextIndex = ++currentIndex
+                if (nextIndex == partyMembersHetekaIds.size){
+                    nextIndex = 0
+                }
+                hetekaId = partyMembersHetekaIds[nextIndex]
+                initUiComponents()
+            }
+        }
+        binding.previous.setOnClickListener {
+            var currentIndex = partyMembersHetekaIds.indexOf(hetekaId)
+            if (currentIndex != -1){
+                var nextIndex = --currentIndex
+                if (nextIndex == -1){
+                    nextIndex = partyMembersHetekaIds.size-1
+                }
+                hetekaId = partyMembersHetekaIds[nextIndex]
+                initUiComponents()
+            }
+
         }
 
     }

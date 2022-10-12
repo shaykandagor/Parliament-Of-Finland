@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="fi.shaynek.parliamentfinland.ui.fragments.HomeFragment"
-        android:label="fragment_home"
+        android:label="@string/fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_partiesFragment"
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/partiesFragment"
         android:name="fi.shaynek.parliamentfinland.ui.fragments.PartiesFragment"
-        android:label="fragment_parties"
+        android:label="@string/fragment_parties"
         tools:layout="@layout/fragment_parties" >
         <action
             android:id="@+id/action_partiesFragment_to_partyDetailedFragment"
@@ -38,7 +38,7 @@
     <fragment
         android:id="@+id/partyDetailedFragment"
         android:name="fi.shaynek.parliamentfinland.ui.fragments.PartyDetailedFragment"
-        android:label="fragment_party_detailed"
+        android:label="@string/fragment_party_detailed"
         tools:layout="@layout/fragment_party_detailed" >
         <action
             android:id="@+id/action_partyDetailedFragment_to_memberDetailsFragment"
@@ -48,7 +48,7 @@
         android:id="@+id/memberDetailsFragment"
         android:name="fi.shaynek.parliamentfinland.ui.fragments.MemberDetailsFragment"
         tools:layout="@layout/fragment_member_details"
-        android:label="MemberDetailsFragment" >
+        android:label="@string/MemberDetailsFragment" >
         <action
             android:id="@+id/action_memberDetailsFragment_to_commentsFragment"
             app:destination="@id/commentsFragment" />
@@ -56,21 +56,21 @@
     <fragment
         android:id="@+id/commentsFragment"
         android:name="fi.shaynek.parliamentfinland.ui.fragments.CommentsFragment"
-        android:label="fragment_comments"
+        android:label="@string/fragment_comments"
         tools:layout="@layout/fragment_comments" />
     <fragment
         android:id="@+id/parliamentHistoryFragment"
         android:name="fi.shaynek.parliamentfinland.ui.fragments.ParliamentHistoryFragment"
-        android:label="parliament_history_fragment"
+        android:label="@string/parliament_history_fragment"
         tools:layout="@layout/fragment_parliament_history" />
     <fragment
         android:id="@+id/allMembersFragment"
         android:name="fi.shaynek.parliamentfinland.ui.fragments.AllMembersFragment"
-        android:label="fragment_all_members"
+        android:label="@string/fragment_all_members"
         tools:layout="@layout/fragment_all_members" />
     <fragment
         android:id="@+id/aboutParliamentFragment2"
         android:name="fi.shaynek.parliamentfinland.ui.fragments.AboutParliamentFragment"
-        android:label="fragment_about_parliament"
+        android:label="@string/fragment_about_parliament"
         tools:layout="@layout/fragment_about_parliament" />
 </navigation>

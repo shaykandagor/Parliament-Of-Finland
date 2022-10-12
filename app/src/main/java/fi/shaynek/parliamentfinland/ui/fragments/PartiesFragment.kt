@@ -44,7 +44,6 @@ class PartiesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding = FragmentPartiesBinding.inflate(inflater)
         viewModel = ViewModelProvider(
             requireActivity(), MemberDetailsViewModelFactory(
@@ -103,7 +102,6 @@ class PartiesFragment : Fragment() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 s?.let {
-//                    viewModel.applyFilter(it.toString())
                 }
             }
 

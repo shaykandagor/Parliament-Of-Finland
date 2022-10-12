@@ -1,9 +1,8 @@
 package fi.shaynek.parliamentfinland.ui.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.widget.FrameLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -15,7 +14,7 @@ import fi.shaynek.parliamentfinland.data.viewmodels.MemberDetailsViewModelFactor
 import fi.shaynek.parliamentfinland.databinding.ActivityMainBinding
 
 /**
- * This class defines the___________
+ * It contains the fragment container view for displaying all the fragments
  * @author Shayne Kandagor
  * @studentId 2112916
  * @version 1.0
@@ -25,8 +24,7 @@ import fi.shaynek.parliamentfinland.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
-    lateinit var navControler:NavController
-    lateinit var fl: FrameLayout
+    lateinit var navController:NavController
     lateinit var viewModel: MemberDetailsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,26 +33,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val navHost = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        navControler = navHost.navController
-        setupActionBarWithNavController(navControler)
+        navController = navHost.navController
+        setupActionBarWithNavController(navController)
 
         viewModel = ViewModelProvider(
             this, MemberDetailsViewModelFactory(
                 (this.application as MainApplication).membersRepository
             ))[MemberDetailsViewModel::class.java]
+        viewModel.preFetch(this)
 
-        viewModel.syncFetch(this)
-
-        /*fl = findViewById(R.id.fl)
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.fl, PartiesFragment())
-//            .add(R.id.fl, MemberDetailsFragment())
-            .commit()*/
     }
 
+
     override fun onSupportNavigateUp(): Boolean {
-        return navControler.navigateUp() ||  super.onSupportNavigateUp()
+        return navController.navigateUp() ||  super.onSupportNavigateUp()
     }
 
 }

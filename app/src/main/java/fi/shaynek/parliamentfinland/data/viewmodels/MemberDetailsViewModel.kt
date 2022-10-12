@@ -29,19 +29,9 @@ class MemberDetailsViewModel(
 ) :
 
     ViewModel() {
-
-    fun observeStatus(lifeCycleOwner: LifecycleOwner) {
-        membersRepository.fectStatus.observe(lifeCycleOwner, Observer {
-            Log.d("Ous:fectStatus", it.toString())
-        })
-        membersRepository.extraDataStatus.observe(lifeCycleOwner, Observer {
-            Log.d("Ous:ex", it.toString())
-        })
-        membersRepository.basicDataStatus.observe(lifeCycleOwner, Observer {
-            Log.d("Ous:bsStatus", it.toString())
-        })
+     fun preFetch(lifecycleOwner: LifecycleOwner){
+        membersRepository.syncFetch(lifecycleOwner, viewModelScope)
     }
-
     val basicDataNet = MutableLiveData<List<MembersBasicData>>()
     val extraDataNet = MutableLiveData<List<MembersExtraData>>()
     private var isFiltered = false
@@ -65,68 +55,6 @@ class MemberDetailsViewModel(
     private fun addExtraData(extraData: MembersExtraData) {
         viewModelScope.launch {
             membersRepository.addExtraData(extraData)
-        }
-    }
-
-    private fun fetchBasicData() {
-        viewModelScope.launch {
-            try {
-                val listResult = membersRepository.fetchBasicData()
-                //TODO COME HERE
-                Log.d("Ous:bsCoun", listResult.size.toString())
-                Log.d("Ous:bs917", listResult.filter {
-                    return@filter it.hetekaId == 917
-                }.toString())
-                basicDataNet.value = listResult
-            } catch (e: Exception) {
-                Log.d("Ous:bs", e.toString())
-//                data.value = listOf()
-            }
-
-
-        }
-    }
-
-    private fun fetchExtraData() {
-        viewModelScope.launch {
-            try {
-                val listResult = membersRepository.fetchExtraData()
-                //TODO COME HERE
-                Log.d("Ous:exCoun", listResult.size.toString())
-                Log.d("Ous:ex917", listResult.filter {
-                    return@filter it.hetekaId == 917
-                }.toString())
-                extraDataNet.value = listResult
-            } catch (e: Exception) {
-                Log.d("Ous:ex", e.toString())
-            }
-        }
-    }
-
-    fun syncFetch(lifeCycleOwner: LifecycleOwner) {
-        viewModelScope.launch {
-            fetchBasicData()
-
-            membersRepository.basicDataStatus.observe(lifeCycleOwner, Observer {
-                if (it == ParliamentApiStatus.DONE) {
-                    fetchExtraData()
-                } else if (it == ParliamentApiStatus.LOADING) {
-                    membersRepository.fectStatus.value = ParliamentApiStatus.LOADING
-                    membersRepository.extraDataStatus.value = ParliamentApiStatus.LOADING
-                } else {
-                    membersRepository.fectStatus.value = ParliamentApiStatus.ERROR
-                    membersRepository.extraDataStatus.value = ParliamentApiStatus.ERROR
-                }
-            })
-            membersRepository.extraDataStatus.observe(lifeCycleOwner, Observer {
-                if (it == ParliamentApiStatus.DONE) {
-                    membersRepository.fectStatus.value = ParliamentApiStatus.DONE
-                } else if (it == ParliamentApiStatus.LOADING) {
-                    membersRepository.fectStatus.value = ParliamentApiStatus.LOADING
-                } else {
-                    membersRepository.fectStatus.value = ParliamentApiStatus.ERROR
-                }
-            })
         }
     }
 
